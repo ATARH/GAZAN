@@ -32,6 +32,20 @@
 html{scroll-behavior:smooth;overflow-x:hidden;max-width:100vw;}
 body{background:var(--ink);color:var(--bone);font-family:'Montserrat',sans-serif;font-weight:300;overflow-x:hidden;max-width:100vw;}
 
+/* ── CANVAS (Уголки) ── */
+#sparksCanvas {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none; z-index: 998; mix-blend-mode: screen; opacity: 0.7;
+}
+
+/* ── CURSOR SPARKS (Искры от мышки) ── */
+.cursor-spark {
+  position: fixed; border-radius: 50%; 
+  background: var(--gold); pointer-events: none; z-index: 9999;
+  box-shadow: 0 0 8px 2px rgba(232,131,46,0.8);
+  transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+}
+
 /* ── HEADER ── */
 header{
   position:fixed;top:0;left:0;right:0;z-index:1000;
@@ -229,6 +243,8 @@ html,body{overflow-x:hidden;width:100%;}
   #home + section > div{flex-direction:column;gap:12px !important;}
   .food-item{width:160px;height:240px;}
   #foodMarquee{animation-duration:20s!important;}
+  /* Отключаем искры на мобильных для экономии батареи */
+  #sparksCanvas, .cursor-spark { display: none !important; }
 }
 @media(max-width:600px){
   header{height:50px;}
@@ -281,10 +297,13 @@ html,body{overflow-x:hidden;width:100%;}
 </head>
 <body>
 
+<!-- CANVAS ДЛЯ ИСКОРОК -->
+<canvas id="sparksCanvas"></canvas>
+
 <!-- HEADER -->
 <header id="header">
   <a class="logo" href="#home" style="display:flex;align-items:center;padding:4px 0;">
-    <!-- ТВОЙ ЛОГОТИП. В скором времени замени ссылку ниже на "img/logo.jpeg" -->
+    <!-- ТВОЙ ЛОГОТИП. В скорем времени замени ссылку ниже на "img/logo.jpeg" -->
     <img src="https://z-cdn-media.chatglm.cn/files/f08bc0be-a7d0-4ee0-aa8d-02842d203f75.jpeg?auth_key=1886821818-9fa9a9525f1645c8a3b734fed802ebbc-0-77066d0a1d9899ceaada1208bedb4900" alt="GAZAN MANGAL" style="height:48px;width:auto;object-fit:contain;border-radius:6px;">
   </a>
   <a href="tel:+79654691233" class="mobile-phone" style="display:none;color:var(--gold);font-size:14px;font-weight:700;text-decoration:none;letter-spacing:1px;">+7 (965) 469-12-33</a>
@@ -327,7 +346,7 @@ html,body{overflow-x:hidden;width:100%;}
       </div>
     </div>
     <div style="flex-shrink:0;">
-      <!-- ТВОЙ ЛОГОТИП В БАННЕРЕ. В скором времени замени ссылку ниже на "img/logo.jpeg" -->
+      <!-- ТВОЙ ЛОГОТИП В БАННЕРЕ. В скорем времени замени ссылку ниже на "img/logo.jpeg" -->
       <img src="https://z-cdn-media.chatglm.cn/files/f08bc0be-a7d0-4ee0-aa8d-02842d203f75.jpeg?auth_key=1886821818-9fa9a9525f1645c8a3b734fed802ebbc-0-77066d0a1d9899ceaada1208bedb4900" alt="GAZAN MANGAL" style="width:240px;height:auto;border-radius:12px;box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
     </div>
   </div>
@@ -858,31 +877,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ТВОИ 10 ВИДЕО ДЛЯ КАРУСЕЛИ (просто названия файлов из папки img)
   const galleryVideos = [
-    'vish1.mp4',
-    'vish2.mp4',
-    'vish3.mp4',
-    'vish4.mp4',
-    'vish5.mp4',
-    'vish6.mp4',
-    'vish7.mp4',
-    'vish8.mp4',
-    'vish9.mp4',
-    'vish10.mp4'
+    'vish1.mp4', 'vish2.mp4', 'vish3.mp4', 'vish4.mp4', 'vish5.mp4',
+    'vish6.mp4', 'vish7.mp4', 'vish8.mp4', 'vish9.mp4', 'vish10.mp4'
   ];
   
   const marquee = document.getElementById('foodMarquee');
   if (marquee) {
-    // Дублируем массив, чтобы прокрутка была бесшовной
     const list = [...galleryVideos, ...galleryVideos];
     list.forEach((src) => {
       const div = document.createElement('div');
       div.className = 'food-item';
-      // preload="metadata" нужен, чтобы не грузить все 10 МБ сразу, браузер подгрузит сам при необходимости
       div.innerHTML = `<video muted playsinline preload="metadata" loop><source src="img/${src}" type="video/mp4"></video>`;
       marquee.appendChild(div);
     });
 
-    // Автозапуск всех видео (с повторной попыткой, если браузер тупит)
     function playAll(){ 
       marquee.querySelectorAll('video').forEach(v => { 
         v.play().catch(()=>{ setTimeout(()=>v.play().catch(()=>{}), 500); }); 
@@ -890,10 +898,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     playAll();
 
-    // JS-прокрутка (бесшовная)
     marquee.style.animation = 'none';
     let pos = 0; 
-    const speed = 0.4; // Скорость прокрутки (0.4 - медленнее, 0.6 - быстрее)
+    const speed = 0.4; 
     
     function scrollMarquee(){
       pos -= speed;
@@ -918,6 +925,89 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   } else {
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+  }
+
+  // ── АНИМАЦИЯ ИСКОРОК ОТ МЫШКИ ──
+  let lastSpark = 0;
+  document.addEventListener('mousemove', (e) => {
+    const now = Date.now();
+    if (now - lastSpark > 40) { // Задержка, чтобы не спамить искрами
+      lastSpark = now;
+      const spark = document.createElement('div');
+      spark.className = 'cursor-spark';
+      spark.style.left = e.clientX + 'px';
+      spark.style.top = e.clientY + 'px';
+      
+      const size = Math.random() * 4 + 2;
+      spark.style.width = size + 'px';
+      spark.style.height = size + 'px';
+      
+      document.body.appendChild(spark);
+      
+      const dx = (Math.random() - 0.5) * 60;
+      const dy = (Math.random() - 0.5) * 60 - 20; // Немного вверх
+      
+      requestAnimationFrame(() => {
+        spark.style.transform = `translate(${dx}px, ${dy}px) scale(0)`;
+        spark.style.opacity = '0';
+      });
+      
+      setTimeout(() => spark.remove(), 600);
+    }
+  });
+
+  // ── АНИМАЦИЯ УГОЛЬКОВ (CANVAS) ──
+  const sparksCanvas = document.getElementById('sparksCanvas');
+  if (sparksCanvas) {
+    const ctx = sparksCanvas.getContext('2d');
+    let w, h;
+    function resizeCanvas() {
+      w = sparksCanvas.width = window.innerWidth;
+      h = sparksCanvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    const embers = [];
+    const emberCount = 40; // Количество искр
+
+    function Ember() {
+      this.reset = () => {
+        this.x = Math.random() * w;
+        this.y = h + Math.random() * 50;
+        this.vx = (Math.random() - 0.5) * 0.8;
+        this.vy = -Math.random() * 1.2 - 0.5;
+        this.size = Math.random() * 2.5 + 0.5;
+        this.life = 1;
+        this.decay = Math.random() * 0.008 + 0.004;
+        const colors = ['232, 131, 46', '245, 176, 106', '139, 42, 61'];
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+      }
+      this.update = () => {
+        this.x += this.vx;
+        this.y += this.vy;
+        this.life -= this.decay;
+        if (this.life <= 0 || this.y < -20) this.reset();
+      }
+      this.draw = () => {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${this.color}, ${this.life})`;
+        ctx.shadowBlur = 5;
+        ctx.shadowColor = `rgba(${this.color}, ${this.life})`;
+        ctx.fill();
+      }
+      this.reset();
+    }
+
+    for (let i = 0; i < emberCount; i++) embers.push(new Ember());
+
+    function animateSparks() {
+      ctx.clearRect(0, 0, w, h);
+      embers.forEach(e => { e.update(); e.draw(); });
+      requestAnimationFrame(animateSparks);
+    }
+    animateSparks();
   }
 });
 
