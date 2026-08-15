@@ -5,7 +5,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="GAZAN MANGAL — Сочи">
   <meta property="og:description" content="Шашлык и блюда на мангале. Доставка и самовывоз в Сочи. Виноградная 185Б · Каждый день с 10:00 до 23:00">
-  <meta property="og:image" content="https://z-cdn-media.chatglm.cn/files/f08bc0be-a7d0-4ee0-aa8d-02842d203f75.jpeg?auth_key=1886821818-9fa9a9525f1645c8a3b734fed802ebbc-0-77066d0a1d9899ceaada1208bedb4900">
+  <meta property="og:image" content="https://z-cdn-media.chatglm.cn/files/8069d90f-bceb-453a-896a-dd68ec7f29bb.png?auth_key=1886827310-390e819e4c3b459ebe569cf74e564c4c-0-0c3e23179aba845717d72646f1003771">
   <meta property="og:url" content="https://your-site.com">
   <meta property="og:locale" content="ru_RU">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,18 +32,10 @@
 html{scroll-behavior:smooth;overflow-x:hidden;max-width:100vw;}
 body{background:var(--ink);color:var(--bone);font-family:'Montserrat',sans-serif;font-weight:300;overflow-x:hidden;max-width:100vw;}
 
-/* ── CANVAS (Уголки) ── */
+/* ── CANVAS (Искры и Уголки) ── */
 #sparksCanvas {
   position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-  pointer-events: none; z-index: 998; mix-blend-mode: screen; opacity: 0.7;
-}
-
-/* ── CURSOR SPARKS (Искры от мышки) ── */
-.cursor-spark {
-  position: fixed; border-radius: 50%; 
-  background: var(--gold); pointer-events: none; z-index: 9999;
-  box-shadow: 0 0 8px 2px rgba(232,131,46,0.8);
-  transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+  pointer-events: none; z-index: 998; mix-blend-mode: screen; opacity: 0.8;
 }
 
 /* ── HEADER ── */
@@ -244,7 +236,7 @@ html,body{overflow-x:hidden;width:100%;}
   .food-item{width:160px;height:240px;}
   #foodMarquee{animation-duration:20s!important;}
   /* Отключаем искры на мобильных для экономии батареи */
-  #sparksCanvas, .cursor-spark { display: none !important; }
+  #sparksCanvas { display: none !important; }
 }
 @media(max-width:600px){
   header{height:50px;}
@@ -297,14 +289,14 @@ html,body{overflow-x:hidden;width:100%;}
 </head>
 <body>
 
-<!-- CANVAS ДЛЯ ИСКОРОК -->
+<!-- CANVAS ДЛЯ ИСКОРОК (оптимизированный) -->
 <canvas id="sparksCanvas"></canvas>
 
 <!-- HEADER -->
 <header id="header">
   <a class="logo" href="#home" style="display:flex;align-items:center;padding:4px 0;">
-    <!-- ТВОЙ ЛОГОТИП. В скорем времени замени ссылку ниже на "img/logo.jpeg" -->
-    <img src="https://z-cdn-media.chatglm.cn/files/f08bc0be-a7d0-4ee0-aa8d-02842d203f75.jpeg?auth_key=1886821818-9fa9a9525f1645c8a3b734fed802ebbc-0-77066d0a1d9899ceaada1208bedb4900" alt="GAZAN MANGAL" style="height:48px;width:auto;object-fit:contain;border-radius:6px;">
+    <!-- ТВОЙ ЛОГОТИП (новый, с цветами). В скором времени замени ссылку ниже на "img/logo.png" -->
+    <img src="https://z-cdn-media.chatglm.cn/files/8069d90f-bceb-453a-896a-dd68ec7f29bb.png?auth_key=1886827310-390e819e4c3b459ebe569cf74e564c4c-0-0c3e23179aba845717d72646f1003771" alt="GAZAN MANGAL" style="height:48px;width:auto;object-fit:contain;filter: drop-shadow(0 0 8px rgba(232,131,46,0.4));">
   </a>
   <a href="tel:+79654691233" class="mobile-phone" style="display:none;color:var(--gold);font-size:14px;font-weight:700;text-decoration:none;letter-spacing:1px;">+7 (965) 469-12-33</a>
   <nav>
@@ -346,8 +338,8 @@ html,body{overflow-x:hidden;width:100%;}
       </div>
     </div>
     <div style="flex-shrink:0;">
-      <!-- ТВОЙ ЛОГОТИП В БАННЕРЕ. В скорем времени замени ссылку ниже на "img/logo.jpeg" -->
-      <img src="https://z-cdn-media.chatglm.cn/files/f08bc0be-a7d0-4ee0-aa8d-02842d203f75.jpeg?auth_key=1886821818-9fa9a9525f1645c8a3b734fed802ebbc-0-77066d0a1d9899ceaada1208bedb4900" alt="GAZAN MANGAL" style="width:240px;height:auto;border-radius:12px;box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
+      <!-- ТВОЙ ЛОГОТИП В БАННЕРЕ (новый, с цветами). В скором времени замени ссылку ниже на "img/logo.png" -->
+      <img src="https://z-cdn-media.chatglm.cn/files/8069d90f-bceb-453a-896a-dd68ec7f29bb.png?auth_key=1886827310-390e819e4c3b459ebe569cf74e564c4c-0-0c3e23179aba845717d72646f1003771" alt="GAZAN MANGAL" style="width:240px;height:auto;filter: drop-shadow(0 0 25px rgba(232,131,46,0.3));">
     </div>
   </div>
 </section>
@@ -875,7 +867,7 @@ document.addEventListener('DOMContentLoaded', () => {
   updateMenuIndicators();
   updateFloatingCart();
 
-  // ТВОИ 10 ВИДЕО ДЛЯ КАРУСЕЛИ (просто названия файлов из папки img)
+  // ТВОИ 10 ВИДЕО ДЛЯ КАРУСЕЛИ
   const galleryVideos = [
     'vish1.mp4', 'vish2.mp4', 'vish3.mp4', 'vish4.mp4', 'vish5.mp4',
     'vish6.mp4', 'vish7.mp4', 'vish8.mp4', 'vish9.mp4', 'vish10.mp4'
@@ -887,16 +879,10 @@ document.addEventListener('DOMContentLoaded', () => {
     list.forEach((src) => {
       const div = document.createElement('div');
       div.className = 'food-item';
-      div.innerHTML = `<video muted playsinline preload="metadata" loop><source src="img/${src}" type="video/mp4"></video>`;
+      // preload="none" чтобы не грузить все 10 видео сразу
+      div.innerHTML = `<video muted playsinline preload="none" loop autoplay><source src="img/${src}" type="video/mp4"></video>`;
       marquee.appendChild(div);
     });
-
-    function playAll(){ 
-      marquee.querySelectorAll('video').forEach(v => { 
-        v.play().catch(()=>{ setTimeout(()=>v.play().catch(()=>{}), 500); }); 
-      }); 
-    }
-    playAll();
 
     marquee.style.animation = 'none';
     let pos = 0; 
@@ -927,36 +913,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
   }
 
-  // ── АНИМАЦИЯ ИСКОРОК ОТ МЫШКИ ──
-  let lastSpark = 0;
-  document.addEventListener('mousemove', (e) => {
-    const now = Date.now();
-    if (now - lastSpark > 40) { // Задержка, чтобы не спамить искрами
-      lastSpark = now;
-      const spark = document.createElement('div');
-      spark.className = 'cursor-spark';
-      spark.style.left = e.clientX + 'px';
-      spark.style.top = e.clientY + 'px';
-      
-      const size = Math.random() * 4 + 2;
-      spark.style.width = size + 'px';
-      spark.style.height = size + 'px';
-      
-      document.body.appendChild(spark);
-      
-      const dx = (Math.random() - 0.5) * 60;
-      const dy = (Math.random() - 0.5) * 60 - 20; // Немного вверх
-      
-      requestAnimationFrame(() => {
-        spark.style.transform = `translate(${dx}px, ${dy}px) scale(0)`;
-        spark.style.opacity = '0';
-      });
-      
-      setTimeout(() => spark.remove(), 600);
-    }
-  });
-
-  // ── АНИМАЦИЯ УГОЛЬКОВ (CANVAS) ──
+  // ── ОПТИМИЗИРОВАННАЯ АНИМАЦИЯ ИСКОРОК (CANVAS) ──
   const sparksCanvas = document.getElementById('sparksCanvas');
   if (sparksCanvas) {
     const ctx = sparksCanvas.getContext('2d');
@@ -968,43 +925,70 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
 
-    const embers = [];
-    const emberCount = 40; // Количество искр
+    const particles = [];
 
-    function Ember() {
-      this.reset = () => {
-        this.x = Math.random() * w;
-        this.y = h + Math.random() * 50;
-        this.vx = (Math.random() - 0.5) * 0.8;
-        this.vy = -Math.random() * 1.2 - 0.5;
-        this.size = Math.random() * 2.5 + 0.5;
-        this.life = 1;
-        this.decay = Math.random() * 0.008 + 0.004;
-        const colors = ['232, 131, 46', '245, 176, 106', '139, 42, 61'];
-        this.color = colors[Math.floor(Math.random() * colors.length)];
-      }
-      this.update = () => {
-        this.x += this.vx;
-        this.y += this.vy;
-        this.life -= this.decay;
-        if (this.life <= 0 || this.y < -20) this.reset();
-      }
-      this.draw = () => {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${this.color}, ${this.life})`;
-        ctx.shadowBlur = 5;
-        ctx.shadowColor = `rgba(${this.color}, ${this.life})`;
-        ctx.fill();
-      }
-      this.reset();
+    // Функция создания уголька (снизу вверх)
+    function createEmber() {
+      particles.push({
+        x: Math.random() * w,
+        y: h + 10,
+        vx: (Math.random() - 0.5) * 0.5,
+        vy: -Math.random() * 1.5 - 0.5,
+        life: 1,
+        decay: Math.random() * 0.008 + 0.004,
+        size: Math.random() * 1.5 + 0.5,
+        color: Math.random() > 0.5 ? '232,131,46' : '245,176,106'
+      });
     }
 
-    for (let i = 0; i < emberCount; i++) embers.push(new Ember());
+    // Функция создания искры от мышки
+    function createMouseSpark(x, y) {
+      for (let i = 0; i < 2; i++) {
+        particles.push({
+          x: x,
+          y: y,
+          vx: (Math.random() - 0.5) * 3,
+          vy: (Math.random() - 0.5) * 3 - 1, // немного вверх
+          life: 1,
+          decay: 0.04,
+          size: Math.random() * 2 + 1,
+          color: '245, 176, 106'
+        });
+      }
+    }
+
+    let lastSpark = 0;
+    document.addEventListener('mousemove', (e) => {
+      const now = Date.now();
+      if (now - lastSpark > 30) {
+        lastSpark = now;
+        createMouseSpark(e.clientX, e.clientY);
+      }
+    });
 
     function animateSparks() {
       ctx.clearRect(0, 0, w, h);
-      embers.forEach(e => { e.update(); e.draw(); });
+      
+      if (Math.random() > 0.7) createEmber(); // Спавн угольков
+
+      for (let i = particles.length - 1; i >= 0; i--) {
+        const p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.life -= p.decay;
+        
+        if (p.life <= 0 || p.y < -20 || p.x < -20 || p.x > w + 20) {
+          particles.splice(i, 1);
+          continue;
+        }
+        
+        ctx.globalAlpha = p.life;
+        ctx.fillStyle = `rgba(${p.color}, ${p.life})`;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.globalAlpha = 1;
       requestAnimationFrame(animateSparks);
     }
     animateSparks();
