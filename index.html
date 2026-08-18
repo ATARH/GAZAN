@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="GAZAN MANGAL — Сочи">
+  <meta property="og:title" content="ГАЗАН МАНГАЛ — Сочи">
   <meta property="og:description" content="Шашлык и блюда на мангале. Доставка и самовывоз в Сочи. Виноградная 185Б и Санаторная 14Г · Каждый день с 10:00 до 23:00">
   <meta property="og:image" content="img/og.jpg">
   <meta property="og:url" content="https://atarh.github.io/GAZAN/">
   <meta property="og:locale" content="ru_RU">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GAZAN MANGAL — Заказ еды в Сочи</title>
+<title>ГАЗАН МАНГАЛ — Заказ еды в Сочи</title>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -142,7 +142,7 @@ html, body { overflow-x:hidden; width:100%; }
 
 @media(max-width:900px) {
   .mobile-phone { display:block !important; }
-  header { padding:0 12px; height:56px; }
+  header { padding:0 16px; height:56px; }
   header .logo img { height:40px; }
   nav { display:none; }
   .burger { display:flex; }
@@ -154,26 +154,33 @@ html, body { overflow-x:hidden; width:100%; }
   .hero-inner > div { width:100%; }
   .hero-inner img { width:160px !important; margin:0 auto; }
   #sparksCanvas { display:none !important; }
+  .footer-bottom { flex-direction:column; gap:12px; text-align:center; }
+  footer { padding:48px 16px 32px; }
 }
 @media(max-width:600px) {
-  header { height:50px; }
+  header { height:50px; padding:0 12px; }
   header .logo img { height:36px; }
-  .btn-primary, .btn-outline { width:100%; text-align:center; }
+  .container { padding:0 12px; }
+  section { padding:50px 0; }
+  .sec-h2 { font-size:32px; }
   .menu-tabs { gap:0; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
   .menu-tabs::-webkit-scrollbar { display:none; }
-  .tab-btn { white-space:nowrap; padding:10px 12px; font-size:10px; letter-spacing:1px; }
-  .menu-card { padding:16px 12px; }
+  .tab-btn { white-space:nowrap; padding:12px 14px; font-size:10px; letter-spacing:1px; }
+  .menu-card { padding:16px 14px; flex-direction:row; }
   .menu-card-price { font-size:20px; }
   .menu-card-name { font-size:14px; }
   .order-grid { gap:24px; }
-  .form-input { padding:12px; font-size:16px; }
-  .cart-total-sum { font-size:22px; }
+  .order-cart { padding:24px 20px; }
+  .form-input { padding:14px 12px; font-size:16px; } 
+  .btn-primary, .btn-outline { width:100%; text-align:center; padding:16px 24px; }
+  .cart-total-sum { font-size:26px; }
   .contacts-grid { gap:24px; }
   .contact-item { gap:10px; }
-  .footer-inner { gap:24px; }
-  .footer-bottom { flex-direction:column; gap:12px; text-align:center; }
-  section { padding:50px 0; }
-  .container { padding:0 12px; }
+  .dual-addresses { gap:16px; }
+  .modal { padding:40px 24px; }
+  .modal-title { font-size:26px; }
+  .modal-text { font-size:13px; }
+  .floating-cart { bottom:20px; left:20px; width:54px; height:54px; font-size:22px; }
 }
 
 .hero-reveal { opacity:0; transform:translateY(20px); animation:heroFadeIn 0.8s ease forwards; }
@@ -202,7 +209,7 @@ html, body { overflow-x:hidden; width:100%; }
 
 <header id="header">
   <a class="logo" href="#home" style="display:flex;align-items:center;padding:4px 0;">
-    <img src="img/logo.png" alt="GAZAN MANGAL" style="height:48px;width:auto;object-fit:contain;filter: drop-shadow(0 0 8px rgba(255,110,26,0.4));">
+    <img src="img/logo.png" alt="ГАЗАН МАНГАЛ" style="height:48px;width:auto;object-fit:contain;filter: drop-shadow(0 0 8px rgba(255,110,26,0.4));">
   </a>
   <a href="tel:+79654691233" class="mobile-phone" style="display:none;color:var(--gold);font-size:14px;font-weight:700;text-decoration:none;letter-spacing:1px;">+7 (965) 469-12-33</a>
   <nav>
@@ -241,13 +248,13 @@ html, body { overflow-x:hidden; width:100%; }
       </div>
     </div>
     <div style="flex-shrink:0;">
-      <img src="img/logo.png" alt="GAZAN MANGAL" style="width:240px;height:auto;filter: drop-shadow(0 0 25px rgba(255,110,26,0.3));">
+      <img src="img/logo.png" alt="ГАЗАН МАНГАЛ" style="width:240px;height:auto;filter: drop-shadow(0 0 25px rgba(255,110,26,0.3));">
     </div>
   </div>
 </section>
 
 <section style="background:#08080A;padding:30px 0;border-bottom:1px solid rgba(255,110,26,0.15);">
-  <div style="max-width:1200px;margin:0 auto;padding:0 48px;display:flex;justify-content:center;align-items:center;gap:40px;flex-wrap:wrap;text-align:center;">
+  <div class="container" style="display:flex;justify-content:center;align-items:center;gap:24px 40px;flex-wrap:wrap;text-align:center;">
     <div>
       <span id="workStatus" style="font-size:14px;font-weight:600;letter-spacing:1px;color:#22C55E;">● ОТКРЫТО</span>
     </div>
@@ -270,81 +277,66 @@ html, body { overflow-x:hidden; width:100%; }
 
     <div class="menu-tabs">
       <button class="tab-btn active" onclick="showCat('meat',this)">Шашлык</button>
-      <button class="tab-btn" onclick="showCat('chicken',this)">Курица и Цыплята</button>
       <button class="tab-btn" onclick="showCat('fish',this)">Рыба</button>
-      <button class="tab-btn" onclick="showCat('starters',this)">Закуски и Гарниры</button>
-      <button class="tab-btn" onclick="showCat('street',this)">Шаурма и Бургеры</button>
-      <button class="tab-btn" onclick="showCat('sauces',this)">Соусы и Хлеб</button>
+      <button class="tab-btn" onclick="showCat('starters',this)">Закуски</button>
+      <button class="tab-btn" onclick="showCat('shawarma',this)">Шаурма и Сувлаки</button>
+      <button class="tab-btn" onclick="showCat('burgers',this)">Бургеры от шефа</button>
     </div>
 
     <div class="menu-grid" id="menuGrid">
+      <!-- ШАШЛЫК -->
       <div class="menu-cat-hidden active" data-cat="meat">
-        <div class="menu-card" onclick="addToCart('Свинина шея', 220, '100 г')"><div><div class="menu-card-name">Свинина шея</div><div class="menu-card-unit">за 100 г · + в корзину</div></div><div class="menu-card-price">220 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Свинина рёбрышки', 200, '100 г')"><div><div class="menu-card-name">Свинина рёбрышки</div><div class="menu-card-unit">за 100 г · + в корзину</div></div><div class="menu-card-price">200 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Баранина корейка', 590, '100 г')"><div><div class="menu-card-name">Баранина корейка</div><div class="menu-card-unit">за 100 г · + в корзину</div></div><div class="menu-card-price">590 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Баранина мякоть', 450, '100 г')"><div><div class="menu-card-name">Баранина мякоть</div><div class="menu-card-unit">за 100 г · + в корзину</div></div><div class="menu-card-price">450 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Баранина люля-кебаб', 320, '100 г')"><div><div class="menu-card-name">Баранина люля-кебаб</div><div class="menu-card-unit">за 100 г · + в корзину</div></div><div class="menu-card-price">320 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Говядина вырезка', 550, '100 г')"><div><div class="menu-card-name">Говядина вырезка</div><div class="menu-card-unit">за 100 г · + в корзину</div></div><div class="menu-card-price">550 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Говяжья печень в сетке', 280, '100 г')"><div><div class="menu-card-name">Говяжья печень в сетке</div><div class="menu-card-unit">за 100 г · + в корзину</div></div><div class="menu-card-price">280 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Говядина люля-кебаб', 240, '100 г')"><div><div class="menu-card-name">Говядина люля-кебаб</div><div class="menu-card-unit">за 100 г · + в корзину</div></div><div class="menu-card-price">240 ₽</div></div>
+        <div class="menu-card" onclick="addToCart('Свинина шея', 700, '1ш (~350г)')"><div><div class="menu-card-name">Свинина шея</div><div class="menu-card-unit">1ш (~350г) · + в корзину</div></div><div class="menu-card-price">700 ₽</div></div>
+        <div class="menu-card" onclick="addToCart('Свинина рёбра', 700, '1ш (~350г)')"><div><div class="menu-card-name">Свинина рёбра</div><div class="menu-card-unit">1ш (~350г) · + в корзину</div></div><div class="menu-card-price">700 ₽</div></div>
+        <div class="menu-card" onclick="addToCart('Свинина рулет', 700, '1ш (~350г)')"><div><div class="menu-card-name">Свинина рулет</div><div class="menu-card-unit">1ш (~350г) · + в корзину</div></div><div class="menu-card-price">700 ₽</div></div>
+        <div class="menu-card" onclick="addToCart('Свинина люля', 700, '1ш (~350г)')"><div><div class="menu-card-name">Свинина люля</div><div class="menu-card-unit">1ш (~350г) · + в корзину</div></div><div class="menu-card-price">700 ₽</div></div>
+        <div class="menu-card" onclick="addToCart('Курица филе', 500, '1ш (~350г)')"><div><div class="menu-card-name">Курица филе</div><div class="menu-card-unit">1ш (~350г) · + в корзину</div></div><div class="menu-card-price">500 ₽</div></div>
+        <div class="menu-card" onclick="addToCart('Курица бедро', 500, '1ш (~350г)')"><div><div class="menu-card-name">Курица бедро</div><div class="menu-card-unit">1ш (~350г) · + в корзину</div></div><div class="menu-card-price">500 ₽</div></div>
+        <div class="menu-card" onclick="addToCart('Курица крыло', 500, '1ш (~350г)')"><div><div class="menu-card-name">Курица крыло</div><div class="menu-card-unit">1ш (~350г) · + в корзину</div></div><div class="menu-card-price">500 ₽</div></div>
+        <div class="menu-card" onclick="addToCart('Курица люля', 500, '1ш (~350г)')"><div><div class="menu-card-name">Курица люля</div><div class="menu-card-unit">1ш (~350г) · + в корзину</div></div><div class="menu-card-price">500 ₽</div></div>
+        <div class="menu-card" onclick="addToCart('Говяжья печень в сетке', 650, '1ш')"><div><div class="menu-card-name">Говяжья печень в сетке</div><div class="menu-card-unit">1ш · + в корзину</div></div><div class="menu-card-price">650 ₽</div></div>
       </div>
 
-      <div class="menu-cat-hidden" data-cat="chicken">
-        <div class="menu-card" onclick="addToCart('Курица филе бедра и грудки', 180, '100 г')"><div><div class="menu-card-name">Курица филе бедра и грудки</div><div class="menu-card-unit">за 100 г · + в корзину</div></div><div class="menu-card-price">180 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Курица крылышки', 150, '100 г')"><div><div class="menu-card-name">Курица крылышки</div><div class="menu-card-unit">за 100 г · + в корзину</div></div><div class="menu-card-price">150 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Куриная голень', 150, '100 г')"><div><div class="menu-card-name">Куриная голень</div><div class="menu-card-unit">за 100 г · + в корзину</div></div><div class="menu-card-price">150 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Курица люля-кебаб', 190, '100 г')"><div><div class="menu-card-name">Курица люля-кебаб</div><div class="menu-card-unit">за 100 г · + в корзину</div></div><div class="menu-card-price">190 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Цыплёнок Табака (целый)', 750, '~1.2 кг')"><div><div class="menu-card-name">Цыплёнок Табака (целый)</div><div class="menu-card-unit">~1.2 кг · + в корзину</div></div><div class="menu-card-price">750 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Цыплёнок Табака (половина)', 400, '~0.6 кг')"><div><div class="menu-card-name">Цыплёнок Табака (половина)</div><div class="menu-card-unit">~0.6 кг · + в корзину</div></div><div class="menu-card-price">400 ₽</div></div>
-      </div>
-
+      <!-- РЫБА -->
       <div class="menu-cat-hidden" data-cat="fish">
-        <div class="menu-card" onclick="addToCart('Речная форель', 330, '100 г')"><div><div class="menu-card-name">Речная форель</div><div class="menu-card-unit">за 100 г · + в корзину</div></div><div class="menu-card-price">330 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Сёмга стейк', 550, '100 г')"><div><div class="menu-card-name">Сёмга стейк</div><div class="menu-card-unit">за 100 г · + в корзину</div></div><div class="menu-card-price">550 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Дорада', 350, '100 г')"><div><div class="menu-card-name">Дорада</div><div class="menu-card-unit">за 100 г · + в корзину</div></div><div class="menu-card-price">350 ₽</div></div>
+        <div class="menu-card" onclick="addToCart('Сёмга', 1300, '1ш')"><div><div class="menu-card-name">Сёмга</div><div class="menu-card-unit">1ш · + в корзину</div></div><div class="menu-card-price">1300 ₽</div></div>
+        <div class="menu-card" onclick="addToCart('Форель', 1100, '1ш')"><div><div class="menu-card-name">Форель</div><div class="menu-card-unit">1ш · + в корзину</div></div><div class="menu-card-price">1100 ₽</div></div>
+        <div class="menu-card" onclick="addToCart('Дорадо', 1100, '1ш')"><div><div class="menu-card-name">Дорадо</div><div class="menu-card-unit">1ш · + в корзину</div></div><div class="menu-card-price">1100 ₽</div></div>
+        <div class="menu-card" onclick="addToCart('Сибас', 1200, '1ш')"><div><div class="menu-card-name">Сибас</div><div class="menu-card-unit">1ш · + в корзину</div></div><div class="menu-card-price">1200 ₽</div></div>
+        <div class="menu-card" onclick="addToCart('Креветка тигровая', 700, '1ш')"><div><div class="menu-card-name">Креветка тигровая</div><div class="menu-card-unit">1ш · + в корзину</div></div><div class="menu-card-price">700 ₽</div></div>
       </div>
 
+      <!-- ЗАКУСКИ -->
       <div class="menu-cat-hidden" data-cat="starters">
-        <div class="menu-card" onclick="addToCart('Овощи на мангале (баклажан/помидор/перец)', 130, '100 г')"><div><div class="menu-card-name">Овощи на мангале (баклажан/помидор/перец)</div><div class="menu-card-unit">за 100 г · + в корзину</div></div><div class="menu-card-price">130 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Шампиньоны на мангале', 150, '100 г')"><div><div class="menu-card-name">Шампиньоны на мангале</div><div class="menu-card-unit">за 100 г · + в корзину</div></div><div class="menu-card-price">150 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Картофель на мангале', 90, '100 г')"><div><div class="menu-card-name">Картофель на мангале</div><div class="menu-card-unit">за 100 г · + в корзину</div></div><div class="menu-card-price">90 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Аджапсандал', 150, '100 г')"><div><div class="menu-card-name">Аджапсандал</div><div class="menu-card-unit">за 100 г · + в корзину</div></div><div class="menu-card-price">150 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Свежие овощи ассорти с зеленью', 350, '250 г')"><div><div class="menu-card-name">Свежие овощи ассорти с зеленью</div><div class="menu-card-unit">250 г · + в корзину</div></div><div class="menu-card-price">350 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Соленья (капуста, огурцы, помидоры, перец)', 130, '100 г')"><div><div class="menu-card-name">Соленья (капуста, огурцы, помидоры, перец)</div><div class="menu-card-unit">за 100 г · + в корзину</div></div><div class="menu-card-price">130 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Картофель фри', 170, '120 г')"><div><div class="menu-card-name">Картофель фри</div><div class="menu-card-unit">120 г · + в корзину</div></div><div class="menu-card-price">170 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Картофель по-деревенски', 180, '120 г')"><div><div class="menu-card-name">Картофель по-деревенски</div><div class="menu-card-unit">120 г · + в корзину</div></div><div class="menu-card-price">180 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Куриные наггетсы (7 шт)', 280, '150 г')"><div><div class="menu-card-name">Куриные наггетсы (7 шт)</div><div class="menu-card-unit">150 г · + в корзину</div></div><div class="menu-card-price">280 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Сырные палочки (7 шт)', 290, '170 г')"><div><div class="menu-card-name">Сырные палочки (7 шт)</div><div class="menu-card-unit">170 г · + в корзину</div></div><div class="menu-card-price">290 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Креветки темпура (5 шт)', 290, '110 г')"><div><div class="menu-card-name">Креветки темпура (5 шт)</div><div class="menu-card-unit">110 г · + в корзину</div></div><div class="menu-card-price">290 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Куриные стрипсы (5 шт)', 290, '200 г')"><div><div class="menu-card-name">Куриные стрипсы (5 шт)</div><div class="menu-card-unit">200 г · + в корзину</div></div><div class="menu-card-price">290 ₽</div></div>
+        <div class="menu-card" onclick="addToCart('Овощи гриль', 150, 'порц.')"><div><div class="menu-card-name">Овощи гриль</div><div class="menu-card-unit">порц. · + в корзину</div></div><div class="menu-card-price">150 ₽</div></div>
+        <div class="menu-card" onclick="addToCart('Сыр сулугуни', 150, 'порц.')"><div><div class="menu-card-name">Сыр сулугуни</div><div class="menu-card-unit">порц. · + в корзину</div></div><div class="menu-card-price">150 ₽</div></div>
+        <div class="menu-card" onclick="addToCart('Картофель', 150, 'порц.')"><div><div class="menu-card-name">Картофель</div><div class="menu-card-unit">порц. · + в корзину</div></div><div class="menu-card-price">150 ₽</div></div>
+        <div class="menu-card" onclick="addToCart('Грибы', 150, 'порц.')"><div><div class="menu-card-name">Грибы</div><div class="menu-card-unit">порц. · + в корзину</div></div><div class="menu-card-price">150 ₽</div></div>
       </div>
 
-      <div class="menu-cat-hidden" data-cat="street">
-        <div class="menu-card" onclick="addToCart('Шаурма с шашлыком (свиная шея)', 350, '400 г')"><div><div class="menu-card-name">Шаурма с шашлыком (свиная шея)</div><div class="menu-card-unit">400 г · + в корзину</div></div><div class="menu-card-price">350 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Шаурма с шашлыком из курицы', 300, '400 г')"><div><div class="menu-card-name">Шаурма с шашлыком из курицы</div><div class="menu-card-unit">400 г · + в корзину</div></div><div class="menu-card-price">300 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Шаурма с люля (курица)', 370, '350 г')"><div><div class="menu-card-name">Шаурма с люля (курица)</div><div class="menu-card-unit">350 г · + в корзину</div></div><div class="menu-card-price">370 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Шаурма с люля (говядина)', 390, '350 г')"><div><div class="menu-card-name">Шаурма с люля (говядина)</div><div class="menu-card-unit">350 г · + в корзину</div></div><div class="menu-card-price">390 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Шаурма с люля (баранина)', 420, '350 г')"><div><div class="menu-card-name">Шаурма с люля (баранина)</div><div class="menu-card-unit">350 г · + в корзину</div></div><div class="menu-card-price">420 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Шаурма с королевской креветкой', 450, '350 г')"><div><div class="menu-card-name">Шаурма с королевской креветкой</div><div class="menu-card-unit">350 г · + в корзину</div></div><div class="menu-card-price">450 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Шаурма с сыром (вегетарианская)', 300, '350 г')"><div><div class="menu-card-name">Шаурма с сыром (вегетарианская)</div><div class="menu-card-unit">350 г · + в корзину</div></div><div class="menu-card-price">300 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Бургер с говядиной', 470, '350 г')"><div><div class="menu-card-name">Бургер с говядиной</div><div class="menu-card-unit">350 г · + в корзину</div></div><div class="menu-card-price">470 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Бургер с бараниной', 490, '350 г')"><div><div class="menu-card-name">Бургер с бараниной</div><div class="menu-card-unit">350 г · + в корзину</div></div><div class="menu-card-price">490 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Бургер с курицей', 450, '350 г')"><div><div class="menu-card-name">Бургер с курицей</div><div class="menu-card-unit">350 г · + в корзину</div></div><div class="menu-card-price">450 ₽</div></div>
+      <!-- ШАУРМА И СУВЛАКИ -->
+      <div class="menu-cat-hidden" data-cat="shawarma">
+        <div class="menu-card" onclick="addToCart('Шаурма куриная', 350, '1ш')"><div><div class="menu-card-name">Шаурма куриная</div><div class="menu-card-unit">1ш · + в корзину</div></div><div class="menu-card-price">350 ₽</div></div>
+        <div class="menu-card" onclick="addToCart('Шаурма свиная', 350, '1ш')"><div><div class="menu-card-name">Шаурма свиная</div><div class="menu-card-unit">1ш · + в корзину</div></div><div class="menu-card-price">350 ₽</div></div>
+        <div class="menu-card" onclick="addToCart('Шаурма говяжья', 350, '1ш')"><div><div class="menu-card-name">Шаурма говяжья</div><div class="menu-card-unit">1ш · + в корзину</div></div><div class="menu-card-price">350 ₽</div></div>
+        <div class="menu-card" onclick="addToCart('Сувлаки куриные', 350, '1ш')"><div><div class="menu-card-name">Сувлаки куриные</div><div class="menu-card-unit">1ш · + в корзину</div></div><div class="menu-card-price">350 ₽</div></div>
+        <div class="menu-card" onclick="addToCart('Сувлаки свиные', 350, '1ш')"><div><div class="menu-card-name">Сувлаки свиные</div><div class="menu-card-unit">1ш · + в корзину</div></div><div class="menu-card-price">350 ₽</div></div>
+        <div class="menu-card" onclick="addToCart('Сувлаки говяжьи', 350, '1ш')"><div><div class="menu-card-name">Сувлаки говяжьи</div><div class="menu-card-unit">1ш · + в корзину</div></div><div class="menu-card-price">350 ₽</div></div>
       </div>
 
-      <div class="menu-cat-hidden" data-cat="sauces">
-        <div class="menu-card" onclick="addToCart('Соус сметанно-чесночный', 120, '100 мл')"><div><div class="menu-card-name">Соус сметанно-чесночный</div><div class="menu-card-unit">100 мл · + в корзину</div></div><div class="menu-card-price">120 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Соус томатный фирменный', 120, '100 мл')"><div><div class="menu-card-name">Соус томатный фирменный</div><div class="menu-card-unit">100 мл · + в корзину</div></div><div class="menu-card-price">120 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Соус Наршараб гранатовый', 120, '50 мл')"><div><div class="menu-card-name">Соус Наршараб гранатовый</div><div class="menu-card-unit">50 мл · + в корзину</div></div><div class="menu-card-price">120 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Соус Reinz (сырный/барбекю)', 50, '25 мл')"><div><div class="menu-card-name">Соус Reinz (сырный/барбекю)</div><div class="menu-card-unit">25 мл · + в корзину</div></div><div class="menu-card-price">50 ₽</div></div>
-        <div class="menu-card" onclick="addToCart('Лаваш (тонкий/толстый)', 100, '150 г')"><div><div class="menu-card-name">Лаваш (тонкий/толстый)</div><div class="menu-card-unit">150 г · + в корзину</div></div><div class="menu-card-price">100 ₽</div></div>
+      <!-- БУРГЕРЫ -->
+      <div class="menu-cat-hidden" data-cat="burgers">
+        <div class="menu-card" onclick="addToCart('Бургер с курицей', 350, '1ш')"><div><div class="menu-card-name">Бургер с курицей</div><div class="menu-card-unit">1ш · + в корзину</div></div><div class="menu-card-price">350 ₽</div></div>
+        <div class="menu-card" onclick="addToCart('Бургер со свининой', 350, '1ш')"><div><div class="menu-card-name">Бургер со свининой</div><div class="menu-card-unit">1ш · + в корзину</div></div><div class="menu-card-price">350 ₽</div></div>
+        <div class="menu-card" onclick="addToCart('Бургер с говядиной', 350, '1ш')"><div><div class="menu-card-name">Бургер с говядиной</div><div class="menu-card-unit">1ш · + в корзину</div></div><div class="menu-card-price">350 ₽</div></div>
+        <div class="menu-card" onclick="addToCart('Бургер с рыбой', 350, '1ш')"><div><div class="menu-card-name">Бургер с рыбой</div><div class="menu-card-unit">1ш · + в корзину</div></div><div class="menu-card-price">350 ₽</div></div>
       </div>
     </div>
   </div>
 </section>
 
 <section style="padding:0;background:#0B0B0D;">
-  <div style="max-width:1160px;margin:0 auto;padding:60px 48px 40px;">
+  <div class="container" style="padding-top:60px; padding-bottom:40px;">
     <div style="font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#FF6E1A;font-weight:600;margin-bottom:16px;">Наша кухня</div>
     <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(32px,4vw,52px);color:#F0F0F2;margin-bottom:40px;font-weight:600;">Вкус, <em style="color:#FF8C3A;">рождённый огнём</em></h2>
   </div>
@@ -356,7 +348,7 @@ html, body { overflow-x:hidden; width:100%; }
 </section>
 
 <section id="reviews" style="background:#0F0F12;padding:100px 0;">
-  <div style="max-width:1160px;margin:0 auto;padding:0 48px;">
+  <div class="container">
     <div style="font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#FF6E1A;font-weight:600;margin-bottom:16px;">Отзывы гостей</div>
     <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(32px,4vw,52px);color:#F0F0F2;margin-bottom:12px;font-weight:600;">Что говорят <em style="color:#FF8C3A;">наши гости</em></h2>
     <div style="width:40px;height:2px;background:#FF6E1A;opacity:.5;margin-bottom:48px;"></div>
@@ -368,7 +360,7 @@ html, body { overflow-x:hidden; width:100%; }
         <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#6B6B73;margin-top:8px;">Яндекс Карты</div>
       </div>
       <div style="flex:1;">
-        <div style="font-family:'Space Grotesk',sans-serif;font-size:24px;color:#F0F0F2;margin-bottom:8px;font-weight:500;">GAZAN MANGAL</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:24px;color:#F0F0F2;margin-bottom:8px;font-weight:500;">ГАЗАН МАНГАЛ</div>
         <div style="font-size:14px;color:#6B6B73;font-weight:300;line-height:1.7;margin-bottom:20px;">Читайте отзывы наших гостей и оставьте свой — это помогает нам становиться лучше и помогает другим найти нас.</div>
         <div style="display:flex;gap:12px;flex-wrap:wrap;">
           <a href="https://yandex.ru/maps/org/gazan_mangal/20891610901/reviews/?ll=39.718040%2C43.621461&z=16" target="_blank" style="padding:12px 28px;background:#FF6E1A;color:#08080A;font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:background .2s;border-radius:2px;" onmouseover="this.style.background='#FFA552'" onmouseout="this.style.background='#FF6E1A'">Оставить отзыв</a>
@@ -494,17 +486,17 @@ html, body { overflow-x:hidden; width:100%; }
 <footer>
   <div class="footer-inner">
     <div>
-      <div class="footer-logo">GAZAN</div>
-      <div class="footer-hash">& MANGAL</div>
+      <div class="footer-logo">ГАЗАН</div>
+      <div class="footer-hash">& МАНГАЛ</div>
       <div class="footer-desc">Шашлык и блюда на мангале. Сочи, Виноградная 185Б и Санаторная 14Г.</div>
     </div>
     <div>
       <div class="footer-col-title">Меню</div>
       <div class="footer-links">
         <a href="#menu" onclick="showCat('meat',null)">Шашлык</a>
-        <a href="#menu" onclick="showCat('chicken',null)">Курица и Цыплята</a>
         <a href="#menu" onclick="showCat('fish',null)">Рыба</a>
-        <a href="#menu" onclick="showCat('street',null)">Шаурма и Бургеры</a>
+        <a href="#menu" onclick="showCat('shawarma',null)">Шаурма и Сувлаки</a>
+        <a href="#menu" onclick="showCat('burgers',null)">Бургеры от шефа</a>
       </div>
     </div>
     <div>
@@ -518,7 +510,7 @@ html, body { overflow-x:hidden; width:100%; }
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-copy">© 2024 GAZAN MANGAL · Сочи</div>
+    <div class="footer-copy">© 2024 ГАЗАН МАНГАЛ · Сочи</div>
     <div class="footer-copy">Каждый день с 10:00 до 23:00</div>
   </div>
 </footer>
