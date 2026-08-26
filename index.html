@@ -641,7 +641,6 @@ async function submitOrder() {
   if (btn) { btn.disabled = true; btn.textContent = 'Отправляем…'; }
   
   let ok = true; 
-  if (ORDER_WORKER_URL !== 'https://gazan-order-notify.n6958123.workers.dev') {
     try {
       const response = await fetch(ORDER_WORKER_URL, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(orderData) });
       const result = await response.json();
