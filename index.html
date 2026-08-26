@@ -531,7 +531,7 @@ html, body { overflow-x:hidden; width:100%; }
 </div>
 
 <script>
-const ORDER_WORKER_URL = 'https://твой-воркер.workers.dev'; 
+const ORDER_WORKER_URL = 'https://gazan-order-notify.n6958123.workers.dev'; 
 let cart = [];
 try {
   const savedCart = localStorage.getItem('gazan_cart');
@@ -641,11 +641,11 @@ async function submitOrder() {
   if (btn) { btn.disabled = true; btn.textContent = 'Отправляем…'; }
   
   let ok = true; 
-  if (ORDER_WORKER_URL !== 'https://твой-воркер.workers.dev') {
+  if (ORDER_WORKER_URL !== 'https://gazan-order-notify.n6958123.workers.dev') {
     try {
       const response = await fetch(ORDER_WORKER_URL, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(orderData) });
       const result = await response.json();
-      ok = result.ok === true;
+      ok = result.success === true;
     } catch (e) { console.error('Ошибка отправки заказа:', e); ok = false; }
   }
 
