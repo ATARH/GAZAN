@@ -646,7 +646,6 @@ async function submitOrder() {
       const result = await response.json();
       ok = result.success === true;
     } catch (e) { console.error('Ошибка отправки заказа:', e); ok = false; }
-  }
 
   if (btn) { btn.disabled = false; btn.textContent = 'Отправить заказ'; }
 
