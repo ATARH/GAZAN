@@ -62,6 +62,39 @@ nav a:hover { color:var(--gold); }
 .hero { height:100vh; min-height:600px; position:relative; display:flex; align-items:center; overflow:hidden; }
 .hero-overlay { position:absolute; inset:0; background:linear-gradient(100deg,rgba(8,8,10,.85) 0%,rgba(8,8,10,.3) 60%,rgba(20,20,30,.2) 100%); }
 
+/* === Прогрессивная размывка на стыке hero и следующего блока === */
+.hero-fade { position:absolute; left:0; right:0; bottom:0; height:220px; z-index:4; pointer-events:none; }
+.hero-fade i { position:absolute; inset:0; display:block; }
+.hero-fade i:nth-child(1){ backdrop-filter:blur(1px);  -webkit-backdrop-filter:blur(1px);  mask-image:linear-gradient(to bottom, transparent 0%, #000 14%, #000 28%, transparent 42%); -webkit-mask-image:linear-gradient(to bottom, transparent 0%, #000 14%, #000 28%, transparent 42%); }
+.hero-fade i:nth-child(2){ backdrop-filter:blur(2px);  -webkit-backdrop-filter:blur(2px);  mask-image:linear-gradient(to bottom, transparent 14%, #000 28%, #000 42%, transparent 56%); -webkit-mask-image:linear-gradient(to bottom, transparent 14%, #000 28%, #000 42%, transparent 56%); }
+.hero-fade i:nth-child(3){ backdrop-filter:blur(4px);  -webkit-backdrop-filter:blur(4px);  mask-image:linear-gradient(to bottom, transparent 28%, #000 42%, #000 56%, transparent 70%); -webkit-mask-image:linear-gradient(to bottom, transparent 28%, #000 42%, #000 56%, transparent 70%); }
+.hero-fade i:nth-child(4){ backdrop-filter:blur(9px);  -webkit-backdrop-filter:blur(9px);  mask-image:linear-gradient(to bottom, transparent 42%, #000 56%, #000 70%, transparent 84%); -webkit-mask-image:linear-gradient(to bottom, transparent 42%, #000 56%, #000 70%, transparent 84%); }
+.hero-fade i:nth-child(5){ backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px); mask-image:linear-gradient(to bottom, transparent 56%, #000 70%, #000 100%); -webkit-mask-image:linear-gradient(to bottom, transparent 56%, #000 70%, #000 100%); }
+.hero-fade i:nth-child(6){ backdrop-filter:blur(32px); -webkit-backdrop-filter:blur(32px); mask-image:linear-gradient(to bottom, transparent 70%, #000 84%, #000 100%); -webkit-mask-image:linear-gradient(to bottom, transparent 70%, #000 84%, #000 100%); }
+.hero-fade::after { content:''; position:absolute; inset:0; background:linear-gradient(to bottom, rgba(8,8,10,0) 0%, rgba(8,8,10,.55) 60%, var(--ink) 100%); }
+@media(max-width:600px){ .hero-fade { height:150px; } }
+
+/* === Плавающая стеклянная панель статуса === */
+.status-float { position:relative; z-index:6; max-width:1160px; margin:-64px auto 0; padding:22px 32px; background:rgba(15,15,18,.55); backdrop-filter:blur(24px) saturate(150%); -webkit-backdrop-filter:blur(24px) saturate(150%); border:1px solid rgba(255,255,255,.08); border-radius:18px; box-shadow:0 24px 60px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.06); display:flex; align-items:center; justify-content:space-between; gap:20px 28px; flex-wrap:wrap; }
+.status-pill { display:inline-flex; align-items:center; gap:9px; padding:10px 18px; background:rgba(34,197,94,.1); border:1px solid rgba(34,197,94,.35); border-radius:999px; font-size:13px; font-weight:600; letter-spacing:.5px; color:var(--green); white-space:nowrap; transition:all .3s; }
+.status-pill.closed { background:rgba(255,110,26,.1); border-color:rgba(255,110,26,.35); color:var(--gold); }
+.status-dot { width:7px; height:7px; flex-shrink:0; border-radius:50%; background:currentColor; box-shadow:0 0 8px currentColor; animation:statusPulse 2s ease-in-out infinite; }
+@keyframes statusPulse { 0%,100%{opacity:1;} 50%{opacity:.35;} }
+.status-timer { color:var(--cream); font-weight:500; opacity:.85; }
+.status-info { display:flex; align-items:center; gap:10px; font-size:13px; color:var(--mist); flex-wrap:wrap; }
+.status-sep { opacity:.35; }
+.status-phone { color:var(--cream); text-decoration:none; font-weight:600; }
+.status-phone:hover { color:var(--gold); }
+.status-cta { padding:13px 28px; background:var(--gold); color:var(--ink); font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; border:1px solid rgba(255,197,140,.5); border-radius:999px; text-decoration:none; white-space:nowrap; transition:all .2s; }
+.status-cta:hover { background:var(--champ); transform:translateY(-1px); }
+@media(max-width:900px){ .status-float { margin-top:-48px; padding:20px 24px; } }
+@media(max-width:600px){
+  .status-float { flex-direction:column; align-items:stretch; text-align:center; margin:-36px 12px 0; padding:18px 18px 20px; border-radius:16px; gap:14px; }
+  .status-pill { justify-content:center; }
+  .status-info { justify-content:center; }
+  .status-cta { width:100%; text-align:center; }
+}
+
 section { padding:100px 0; }
 .container { max-width:1160px; margin:0 auto; padding:0 48px; }
 .sec-tag { font-size:10px; letter-spacing:5px; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:16px; }
@@ -74,7 +107,7 @@ section { padding:100px 0; }
 .tab-btn { padding:14px 24px; background:transparent; border:none; font-family:'Manrope',sans-serif; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--mist); cursor:pointer; transition:all .2s; border-bottom:2px solid transparent; margin-bottom:-1px; }
 .tab-btn.active, .tab-btn:hover { color:var(--gold); border-bottom-color:var(--gold); }
 .menu-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:2px; }
-.menu-card { background:var(--graph); padding:28px 32px; display:flex; justify-content:space-between; align-items:center; gap:16px; transition:background .2s; border-left:2px solid transparent; position:relative; }
+.menu-card { background:var(--graph); padding:28px 32px; display:flex; justify-content:space-between; align-items:center; gap:16px; transition:background .2s, box-shadow .2s; border-left:2px solid transparent; box-shadow:inset 0 1px 0 rgba(255,255,255,.04); position:relative; }
 .menu-card:hover { background:var(--slate); }
 .menu-card.in-cart { border-left-color:var(--green) !important; background:rgba(34,197,94,0.06) !important; }
 .menu-card-name { font-size:15px; color:var(--cream); font-weight:500; margin-bottom:4px; }
@@ -105,7 +138,7 @@ select.form-input { appearance:none; -webkit-appearance:none; background-image:u
 .consent-row input[type="checkbox"] { accent-color:var(--gold); width:17px; height:17px; margin-top:2px; flex-shrink:0; cursor:pointer; }
 .consent-row label { font-size:12px; color:var(--mist); line-height:1.5; font-weight:300; }
 .consent-row a { color:var(--gold); text-decoration:underline; }
-.order-cart { background:var(--graph); padding:40px; }
+.order-cart { background:var(--graph); padding:40px; border:1px solid rgba(255,255,255,.06); border-radius:12px; box-shadow:inset 0 1px 0 rgba(255,255,255,.05); }
 .cart-title { font-family:'Space Grotesk',sans-serif; font-size:24px; color:var(--cream); margin-bottom:24px; font-weight:500; }
 .cart-hint { font-size:13px; color:var(--mist); font-weight:300; line-height:1.6; margin-bottom:24px; }
 .cart-empty { text-align:center; padding:40px 0; }
@@ -222,16 +255,17 @@ html, body { overflow-x:hidden; width:100%; }
 .hero-reveal:nth-child(2) { animation-delay:0.6s; }
 .hero-reveal:nth-child(3) { animation-delay:0.9s; }
 @keyframes heroFadeIn { to { opacity:1; transform:translateY(0); } }
-.btn-primary { animation:btnPulse 3s ease-in-out infinite; padding:16px 36px; background:var(--gold); color:var(--ink); font-family:'Manrope',sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; border:none; cursor:pointer; transition:all .2s; text-decoration:none; display:inline-block; border-radius:2px; }
+.btn-primary { animation:btnPulse 3s ease-in-out infinite; padding:16px 36px; background:var(--gold); color:var(--ink); font-family:'Manrope',sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; border:1px solid rgba(255,197,140,.5); cursor:pointer; transition:all .2s; text-decoration:none; display:inline-block; border-radius:2px; }
 .btn-primary:hover { background:var(--champ); transform:translateY(-2px); }
 .btn-outline { padding:15px 36px; background:transparent; color:var(--bone); font-family:'Manrope',sans-serif; font-size:11px; font-weight:600; letter-spacing:2px; text-transform:uppercase; border:1px solid rgba(255,255,255,.2); cursor:pointer; transition:all .2s; text-decoration:none; display:inline-block; border-radius:2px; }
 .btn-outline:hover { border-color:var(--gold); color:var(--gold); }
 @keyframes btnPulse { 0%,100% { box-shadow:0 0 0 0 rgba(255,110,26,0.3); } 50% { box-shadow:0 0 20px 4px rgba(255,110,26,0.15); } }
 
 @keyframes foodScroll { from { transform:translateX(0); } to { transform:translateX(-50%); } }
-.food-item { flex-shrink:0; width:220px; height:320px; border-radius:8px; overflow:hidden; position:relative; background:var(--graph); }
+.food-item { flex-shrink:0; width:220px; height:320px; border-radius:10px; overflow:hidden; position:relative; background:var(--graph); border:1px solid rgba(255,255,255,.08); box-shadow:inset 0 1px 0 rgba(255,255,255,.06); transition:border-color .25s; }
 .food-item video { width:100%; height:100%; object-fit:cover; }
-.food-item:hover { box-shadow:0 0 20px rgba(255,110,26,.1); }
+.food-item:hover { box-shadow:inset 0 1px 0 rgba(255,255,255,.06), 0 0 20px rgba(255,110,26,.1); border-color:rgba(255,110,26,.35); }
+@media(max-width:600px){ .food-item { width:150px; height:220px; border-radius:8px; } }
 
 .reveal { opacity:0; transform:translateY(32px); transition:opacity 0.7s ease, transform 0.7s ease; }
 .reveal.visible { opacity:1; transform:translateY(0); }
@@ -285,21 +319,23 @@ html, body { overflow-x:hidden; width:100%; }
       <img src="img/logo.png" alt="ГАЗАН МАНГАЛ" style="width:240px;height:auto;filter: drop-shadow(0 0 25px rgba(255,110,26,0.3));">
     </div>
   </div>
+
+  <div class="hero-fade"><i></i><i></i><i></i><i></i><i></i><i></i></div>
 </section>
 
-<section style="background:#08080A;padding:30px 0;border-bottom:1px solid rgba(255,110,26,0.15);">
-  <div class="container" style="display:flex;justify-content:center;align-items:center;gap:24px 40px;flex-wrap:wrap;text-align:center;">
-    <div>
-      <span id="workStatus" style="font-size:14px;font-weight:600;letter-spacing:1px;color:#22C55E;">● ОТКРЫТО</span>
+<section style="padding:0 0 56px;background:var(--ink);">
+  <div class="status-float">
+    <span class="status-pill" id="statusPill">
+      <span class="status-dot"></span>
+      <span id="workStatus">ОТКРЫТО</span>
+      <span class="status-timer"><span id="workLabel">до закрытия</span> <span id="workTimer">--:--:--</span></span>
+    </span>
+    <div class="status-info">
+      <span>Ежедневно с 10:00 до 23:00</span>
+      <span class="status-sep">·</span>
+      <a href="tel:+79654691233" class="status-phone">+7 (965) 469-12-33</a>
     </div>
-    <div style="font-size:14px;color:#6B6B73;letter-spacing:1px;">Ежедневно с 10:00 до 23:00</div>
-    <div>
-      <span id="workLabel" style="font-size:14px;color:#6B6B73;">До закрытия: </span>
-      <span id="workTimer" style="font-size:14px;font-weight:600;color:#F0F0F2;">--:--:--</span>
-    </div>
-    <div>
-      <a href="tel:+79654691233" style="font-size:14px;font-weight:600;color:#F0F0F2;text-decoration:none;">+7 (965) 469-12-33</a>
-    </div>
+    <a href="#order" class="status-cta">Заказать доставку</a>
   </div>
 </section>
 
@@ -833,7 +869,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const isMobile = window.matchMedia('(max-width:600px)').matches;
   const galleryVideos = isMobile
-    ? ['vish1.mp4', 'vish2.mp4', 'vish3.mp4', 'vish4.mp4', 'vish5.mp4']
+    ? ['vish1.mp4', 'vish2.mp4', 'vish3.mp4']
     : ['vish1.mp4', 'vish2.mp4', 'vish3.mp4', 'vish4.mp4', 'vish5.mp4',
        'vish6.mp4', 'vish7.mp4', 'vish8.mp4', 'vish9.mp4', 'vish10.mp4'];
 
@@ -853,39 +889,46 @@ document.addEventListener('DOMContentLoaded', () => {
       videoEls.push(vid);
     });
 
-    // На мобильном видео начинают грузиться и играть только когда карусель реально видна —
-    // экономит трафик и заряд батареи при обычном скролле страницы.
+    // Раньше все ролики карусели грузились и играли разом, как только секция появлялась
+    // на экране, — на телефоне это 6-10 одновременных видеодекодеров и жуткие тормоза.
+    // Теперь каждая карточка следит сама за собой: играет только то, что реально видно.
     if (window.IntersectionObserver) {
-      const marqueeObserver = new IntersectionObserver((entries) => {
+      const itemObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-          videoEls.forEach((vid) => {
-            if (entry.isIntersecting) {
-              if (!vid.src) { const s = document.createElement('source'); s.src = vid.dataset.src; s.type = 'video/mp4'; vid.appendChild(s); vid.load(); }
-              vid.play().catch(() => {});
-            } else {
-              vid.pause();
-            }
-          });
+          const vid = entry.target.querySelector('video');
+          if (!vid) return;
+          if (entry.isIntersecting) {
+            if (!vid.src) { const s = document.createElement('source'); s.src = vid.dataset.src; s.type = 'video/mp4'; vid.appendChild(s); vid.load(); }
+            vid.play().catch(() => {});
+          } else {
+            vid.pause();
+          }
         });
-      }, { threshold: 0.05 });
-      marqueeObserver.observe(marquee);
+      }, { rootMargin: isMobile ? '0px 60px' : '0px 200px', threshold: 0.1 });
+      videoEls.forEach((vid) => itemObserver.observe(vid.parentElement));
     } else {
       videoEls.forEach((vid) => {
         const s = document.createElement('source'); s.src = vid.dataset.src; s.type = 'video/mp4'; vid.appendChild(s); vid.load(); vid.play().catch(() => {});
       });
     }
 
-    marquee.style.animation = 'none';
-    let pos = 0; 
-    const speed = 0.4; 
-    function scrollMarquee(){
-      pos -= speed;
-      const half = marquee.scrollWidth / 2;
-      if(Math.abs(pos) >= half) pos = 0;
-      marquee.style.transform = `translateX(${pos}px)`;
-      requestAnimationFrame(scrollMarquee);
+    if (isMobile) {
+      // На телефоне — простая CSS-анимация вместо покадрового JS-скролла:
+      // движение уходит на GPU, основной поток не дёргается каждый кадр.
+      marquee.style.animation = 'foodScroll 24s linear infinite';
+    } else {
+      marquee.style.animation = 'none';
+      let pos = 0;
+      const speed = 0.4;
+      function scrollMarquee(){
+        pos -= speed;
+        const half = marquee.scrollWidth / 2;
+        if(Math.abs(pos) >= half) pos = 0;
+        marquee.style.transform = `translateX(${pos}px)`;
+        requestAnimationFrame(scrollMarquee);
+      }
+      scrollMarquee();
     }
-    scrollMarquee();
   }
 
   if (window.IntersectionObserver) {
@@ -970,13 +1013,14 @@ function updateWorkTimer() {
   var statusEl = document.getElementById('workStatus');
   var timerEl = document.getElementById('workTimer');
   var labelEl = document.getElementById('workLabel');
+  var pillEl = document.getElementById('statusPill');
   
   if (!statusEl || !timerEl) return;
   
   if (isOpen) {
-    statusEl.innerHTML = '● ОТКРЫТО'; 
-    statusEl.style.color = '#22C55E';
-    if (labelEl) labelEl.innerHTML = 'До закрытия: ';
+    statusEl.innerHTML = 'ОТКРЫТО';
+    if (labelEl) labelEl.innerHTML = 'до закрытия';
+    if (pillEl) pillEl.classList.remove('closed');
     
     var closeTime = new Date(now); 
     closeTime.setHours(23, 0, 0, 0);
@@ -987,11 +1031,10 @@ function updateWorkTimer() {
     var s = Math.floor((diff % 60000) / 1000);
     
     timerEl.innerHTML = String(h).padStart(2, '0') + ':' + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
-    timerEl.style.color = '#F0F0F2';
   } else {
-    statusEl.innerHTML = '● ЗАКРЫТО'; 
-    statusEl.style.color = '#FF6E1A';
-    if (labelEl) labelEl.innerHTML = 'До открытия: ';
+    statusEl.innerHTML = 'ЗАКРЫТО';
+    if (labelEl) labelEl.innerHTML = 'до открытия';
+    if (pillEl) pillEl.classList.add('closed');
     
     var openTime = new Date(now);
     if (hours >= 23) { openTime.setDate(openTime.getDate() + 1); }
@@ -1003,7 +1046,6 @@ function updateWorkTimer() {
     var s = Math.floor((diff % 60000) / 1000);
     
     timerEl.innerHTML = String(h).padStart(2, '0') + ':' + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
-    timerEl.style.color = '#FF6E1A';
   }
 }
 setInterval(updateWorkTimer, 1000);
