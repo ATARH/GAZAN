@@ -23,7 +23,9 @@
   <meta property="og:locale" content="ru_RU">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ГАЗАН МАНГАЛ — Заказ еды в Сочи</title>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
   --ink: #08080A;     /* Уголь */
@@ -88,6 +90,21 @@ section { padding:100px 0; }
 .form-input { width:100%; padding:14px 18px; background:var(--graph); border:1px solid rgba(255,255,255,.08); color:var(--cream); font-family:'Manrope',sans-serif; font-size:14px; font-weight:300; outline:none; transition:border-color .2s; }
 .form-input:focus { border-color:var(--gold); }
 .form-input::placeholder { color:var(--mist); }
+select.form-input { appearance:none; -webkit-appearance:none; background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'><path d='M1 1l6 6 6-6' stroke='%236B6B73' stroke-width='2' fill='none' fill-rule='evenodd'/></svg>"); background-repeat:no-repeat; background-position:right 18px center; padding-right:44px; cursor:pointer; }
+.form-label { display:block; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:var(--mist); margin-bottom:8px; font-weight:600; }
+.toggle-group { display:flex; gap:0; margin-bottom:20px; border:1px solid rgba(255,255,255,.08); border-radius:2px; overflow:hidden; }
+.toggle-btn { flex:1; padding:13px 12px; background:var(--graph); border:none; color:var(--mist); font-family:'Manrope',sans-serif; font-size:12px; font-weight:600; letter-spacing:.5px; text-transform:uppercase; cursor:pointer; transition:all .2s; }
+.toggle-btn.active { background:var(--gold); color:var(--ink); }
+.toggle-btn:not(:last-child) { border-right:1px solid rgba(255,255,255,.08); }
+.pay-options { display:flex; flex-direction:column; gap:10px; margin-bottom:20px; }
+.pay-option { display:flex; align-items:center; gap:12px; padding:13px 16px; background:var(--graph); border:1px solid rgba(255,255,255,.08); border-radius:2px; cursor:pointer; transition:border-color .2s; }
+.pay-option:hover { border-color:rgba(255,110,26,.4); }
+.pay-option input[type="radio"] { accent-color:var(--gold); width:16px; height:16px; cursor:pointer; }
+.pay-option span { font-size:13px; color:var(--cream); font-weight:300; }
+.consent-row { display:flex; align-items:flex-start; gap:10px; margin-bottom:20px; }
+.consent-row input[type="checkbox"] { accent-color:var(--gold); width:17px; height:17px; margin-top:2px; flex-shrink:0; cursor:pointer; }
+.consent-row label { font-size:12px; color:var(--mist); line-height:1.5; font-weight:300; }
+.consent-row a { color:var(--gold); text-decoration:underline; }
 .order-cart { background:var(--graph); padding:40px; }
 .cart-title { font-family:'Space Grotesk',sans-serif; font-size:24px; color:var(--cream); margin-bottom:24px; font-weight:500; }
 .cart-hint { font-size:13px; color:var(--mist); font-weight:300; line-height:1.6; margin-bottom:24px; }
@@ -176,9 +193,10 @@ html, body { overflow-x:hidden; width:100%; }
   .container { padding:0 12px; }
   section { padding:50px 0; }
   .sec-h2 { font-size:32px; }
-  .menu-tabs { gap:0; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+  .menu-tabs { gap:8px; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; border-bottom:none; position:sticky; top:50px; z-index:50; background:var(--ink); padding:10px 0 14px; margin-bottom:24px; scroll-snap-type:x proximity; }
   .menu-tabs::-webkit-scrollbar { display:none; }
-  .tab-btn { white-space:nowrap; padding:12px 14px; font-size:10px; letter-spacing:1px; }
+  .tab-btn { white-space:nowrap; padding:11px 18px; font-size:11px; letter-spacing:.5px; background:var(--graph); border:1px solid rgba(255,255,255,.08); border-radius:999px; border-bottom:none !important; margin-bottom:0; scroll-snap-align:start; }
+  .tab-btn.active { background:var(--gold); color:var(--ink); border-color:var(--gold); }
   .menu-card { padding:16px 14px; flex-direction:row; }
   .menu-card-price { font-size:20px; }
   .menu-card-name { font-size:14px; }
@@ -194,6 +212,9 @@ html, body { overflow-x:hidden; width:100%; }
   .modal-title { font-size:26px; }
   .modal-text { font-size:13px; }
   .floating-cart { bottom:20px; left:20px; width:54px; height:54px; font-size:22px; }
+  /* Ускорение первичной отрисовки: браузер не тратит ресурсы на раскладку и рендер блоков,
+     которые ещё не видны на экране — важное для заказчика (меню/заказ) остаётся мгновенным. */
+  #reviews, #contacts, footer { content-visibility:auto; contain-intrinsic-size:1px 900px; }
 }
 
 .hero-reveal { opacity:0; transform:translateY(20px); animation:heroFadeIn 0.8s ease forwards; }
@@ -418,10 +439,47 @@ html, body { overflow-x:hidden; width:100%; }
           <label class="form-label">Телефон</label>
           <input type="tel" class="form-input" id="orderPhone" placeholder="+7 (___) ___-__-__">
         </div>
+
+        <div class="form-group">
+          <label class="form-label">Способ получения</label>
+          <div class="toggle-group">
+            <button type="button" class="toggle-btn active" id="btnDelivery" onclick="switchOrderType('delivery')">Доставка</button>
+            <button type="button" class="toggle-btn" id="btnPickup" onclick="switchOrderType('pickup')">Самовывоз</button>
+          </div>
+        </div>
+
+        <div class="form-group" id="deliveryAddressBlock">
+          <label class="form-label">Адрес доставки</label>
+          <input type="text" class="form-input" id="orderAddress" placeholder="Улица, дом, квартира/подъезд">
+        </div>
+
+        <div class="form-group" id="pickupPointBlock" style="display:none;">
+          <label class="form-label">Точка самовывоза</label>
+          <select class="form-input" id="pickupPoint">
+            <option value="Виноградная 185Б">Сочи, Виноградная 185Б</option>
+            <option value="Санаторная 14Г">Сочи, Санаторная 14Г</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Способ оплаты</label>
+          <div class="pay-options">
+            <label class="pay-option"><input type="radio" name="payMethod" value="Наличными" checked><span>Наличными курьеру/в точке</span></label>
+            <label class="pay-option"><input type="radio" name="payMethod" value="Картой"><span>Картой курьеру/в точке</span></label>
+            <label class="pay-option"><input type="radio" name="payMethod" value="Переводом"><span>Переводом (по номеру телефона)</span></label>
+          </div>
+        </div>
+
         <div class="form-group">
           <label class="form-label">Комментарий к заказу</label>
           <textarea class="form-input" id="orderComment" rows="3" placeholder="Например: без лука, доставка к 19:00"></textarea>
         </div>
+
+        <div class="consent-row">
+          <input type="checkbox" id="orderConsent">
+          <label for="orderConsent">Я согласен(-на) на обработку персональных данных в соответствии с <a href="policy.html" target="_blank" rel="noopener">Политикой конфиденциальности</a></label>
+        </div>
+
         <button class="btn-primary" style="width:100%;" onclick="submitOrder()">Отправить заказ</button>
         <div class="delivery-note" style="margin-top:20px;">Мы свяжемся с вами по указанному телефону для подтверждения заказа и времени доставки.</div>
         <div style="font-size:12px;color:var(--mist);text-align:center;">Или позвоните сами: <a href="tel:+79654691233" style="color:var(--gold);text-decoration:none;">+7 (965) 469-12-33</a></div>
@@ -519,6 +577,7 @@ html, body { overflow-x:hidden; width:100%; }
         <a href="#reviews">Отзывы</a>
         <a href="#contacts">Контакты</a>
         <a href="tel:+79654691233">+7 (965) 469-12-33</a>
+        <a href="policy.html">Политика конфиденциальности</a>
       </div>
     </div>
   </div>
@@ -639,16 +698,41 @@ function updateFloatingCart() {
   }
 }
 
+let currentOrderType = 'delivery';
+function switchOrderType(type) {
+  currentOrderType = type;
+  document.getElementById('btnDelivery').classList.toggle('active', type === 'delivery');
+  document.getElementById('btnPickup').classList.toggle('active', type === 'pickup');
+  document.getElementById('deliveryAddressBlock').style.display = type === 'delivery' ? 'block' : 'none';
+  document.getElementById('pickupPointBlock').style.display = type === 'pickup' ? 'block' : 'none';
+}
+
 async function submitOrder() {
   const name = document.getElementById('orderName').value.trim();
   const phone = document.getElementById('orderPhone').value.trim();
   const comment = document.getElementById('orderComment').value.trim();
+  const address = document.getElementById('orderAddress').value.trim();
+  const pickupPoint = document.getElementById('pickupPoint').value;
+  const payMethodEl = document.querySelector('input[name="payMethod"]:checked');
+  const payMethod = payMethodEl ? payMethodEl.value : '';
+  const consent = document.getElementById('orderConsent').checked;
+
   if (!name) { alert('Пожалуйста, укажите ваше имя'); return; }
   if (!phone) { alert('Пожалуйста, укажите номер телефона'); return; }
+  if (currentOrderType === 'delivery' && !address) { alert('Пожалуйста, укажите адрес доставки'); return; }
+  if (!consent) { alert('Нужно согласие на обработку персональных данных'); return; }
   if (cart.length === 0) { alert('Добавьте хотя бы одно блюдо в корзину'); return; }
   
   const totalSum = cart.reduce((a,i) => a + i.price*i.qty, 0);
-  const orderData = { name, phone, comment, items: cart.map(i => ({name: i.name, qty: i.qty, price: i.price})), total: totalSum };
+  const orderData = {
+    name, phone, comment,
+    orderType: currentOrderType === 'delivery' ? 'Доставка' : 'Самовывоз',
+    address: currentOrderType === 'delivery' ? address : '',
+    pickupPoint: currentOrderType === 'pickup' ? pickupPoint : '',
+    payMethod,
+    items: cart.map(i => ({name: i.name, qty: i.qty, price: i.price})),
+    total: totalSum
+  };
   
   const btn = event && event.target;
   if (btn) { btn.disabled = true; btn.textContent = 'Отправляем…'; }
@@ -668,6 +752,8 @@ async function submitOrder() {
     document.getElementById('orderName').value = '';
     document.getElementById('orderPhone').value = '';
     document.getElementById('orderComment').value = '';
+    document.getElementById('orderAddress').value = '';
+    document.getElementById('orderConsent').checked = false;
     document.getElementById('modalOverlay').classList.add('show');
   } else {
     alert('Не получилось отправить заказ. Пожалуйста, позвоните: +7 (965) 469-12-33');
@@ -745,20 +831,49 @@ document.addEventListener('DOMContentLoaded', () => {
   updateMenuIndicators();
   updateFloatingCart();
 
-  const galleryVideos = [
-    'vish1.mp4', 'vish2.mp4', 'vish3.mp4', 'vish4.mp4', 'vish5.mp4',
-    'vish6.mp4', 'vish7.mp4', 'vish8.mp4', 'vish9.mp4', 'vish10.mp4'
-  ];
-  
+  const isMobile = window.matchMedia('(max-width:600px)').matches;
+  const galleryVideos = isMobile
+    ? ['vish1.mp4', 'vish2.mp4', 'vish3.mp4', 'vish4.mp4', 'vish5.mp4']
+    : ['vish1.mp4', 'vish2.mp4', 'vish3.mp4', 'vish4.mp4', 'vish5.mp4',
+       'vish6.mp4', 'vish7.mp4', 'vish8.mp4', 'vish9.mp4', 'vish10.mp4'];
+
   const marquee = document.getElementById('foodMarquee');
   if (marquee) {
     const list = [...galleryVideos, ...galleryVideos];
+    const videoEls = [];
     list.forEach((src) => {
       const div = document.createElement('div');
       div.className = 'food-item';
-      div.innerHTML = `<video muted playsinline preload="metadata" loop autoplay><source src="img/${src}" type="video/mp4"></video>`;
+      const vid = document.createElement('video');
+      vid.muted = true; vid.playsInline = true; vid.loop = true;
+      vid.preload = 'none';
+      vid.dataset.src = `img/${src}`;
+      div.appendChild(vid);
       marquee.appendChild(div);
+      videoEls.push(vid);
     });
+
+    // На мобильном видео начинают грузиться и играть только когда карусель реально видна —
+    // экономит трафик и заряд батареи при обычном скролле страницы.
+    if (window.IntersectionObserver) {
+      const marqueeObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          videoEls.forEach((vid) => {
+            if (entry.isIntersecting) {
+              if (!vid.src) { const s = document.createElement('source'); s.src = vid.dataset.src; s.type = 'video/mp4'; vid.appendChild(s); vid.load(); }
+              vid.play().catch(() => {});
+            } else {
+              vid.pause();
+            }
+          });
+        });
+      }, { threshold: 0.05 });
+      marqueeObserver.observe(marquee);
+    } else {
+      videoEls.forEach((vid) => {
+        const s = document.createElement('source'); s.src = vid.dataset.src; s.type = 'video/mp4'; vid.appendChild(s); vid.load(); vid.play().catch(() => {});
+      });
+    }
 
     marquee.style.animation = 'none';
     let pos = 0; 
