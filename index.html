@@ -148,7 +148,6 @@ section { padding:100px 0; }
 .menu-qty-btn:hover { color: var(--gold); border-color: var(--gold); }
 
 #order { background:var(--ink); }
-.order-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; }
 .form-group { margin-bottom:20px; }
 .form-label { font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:8px; display:block; }
 .form-input { width:100%; padding:14px 18px; background:var(--graph); border:1px solid rgba(255,255,255,.08); color:var(--cream); font-family:'Manrope',sans-serif; font-size:14px; font-weight:300; outline:none; transition:border-color .2s; }
@@ -241,7 +240,7 @@ html, body { overflow-x:hidden; width:100%; }
   nav { display:none; }
   .burger { display:flex; }
   .container { padding:0 16px; }
-  .order-grid, .contacts-grid, .footer-inner { grid-template-columns:1fr; }
+  .contacts-grid, .footer-inner { grid-template-columns:1fr; }
   .menu-grid { grid-template-columns:1fr 1fr; }
   section { padding:72px 0; }
   .hero-inner { flex-direction:column !important; gap:20px !important; padding:80px 16px 30px !important; text-align:center; }
@@ -261,11 +260,19 @@ html, body { overflow-x:hidden; width:100%; }
   .menu-tabs::-webkit-scrollbar { display:none; }
   .tab-btn { white-space:nowrap; padding:11px 18px; font-size:11px; letter-spacing:.5px; background:var(--graph); border:1px solid rgba(255,255,255,.08); border-radius:999px; border-bottom:none !important; margin-bottom:0; scroll-snap-align:start; }
   .tab-btn.active { background:var(--gold); color:var(--ink); border-color:var(--gold); }
+  
+  /* Две карточки на телефоне */
+  .menu-grid { grid-template-columns:1fr 1fr; gap:10px; }
   .menu-card { padding:0; flex-direction:column; }
-  .menu-grid { grid-template-columns:1fr; }
-  .menu-card-price { font-size:20px; }
+  .menu-card-img { height:130px; }
+  .menu-card-info { padding:12px; gap:4px; }
   .menu-card-name { font-size:14px; }
-  .order-grid { gap:24px; }
+  .menu-card-unit { font-size:10px; }
+  .menu-card-price { font-size:17px; }
+  .menu-add-btn { width:28px; height:28px; font-size:18px; }
+  .menu-qty-btn { width:28px; height:28px; font-size:16px; margin-right:6px; }
+  .menu-card-footer { padding-top:8px; }
+
   .order-cart { padding:24px 20px; }
   .form-input { padding:14px 12px; font-size:16px; } 
   .btn-primary, .btn-outline { width:100%; text-align:center; padding:16px 24px; }
@@ -719,6 +726,26 @@ html, body { overflow-x:hidden; width:100%; }
   </div>
 </section>
 
+<!-- НОВЫЙ БЛОК КОРЗИНЫ (СРАЗУ ПОД МЕНЮ) -->
+<section style="background:var(--obs); padding: 40px 0 60px;">
+  <div class="container" style="max-width:700px; margin:0 auto;">
+    <div class="order-cart" id="cartBlock">
+      <div class="cart-title">Ваш заказ</div>
+      <div class="cart-hint">Добавляйте блюда из меню выше кнопкой «+ в корзину» — они появятся здесь.</div>
+      <div class="cart-empty" id="cartEmpty">
+        <div class="cart-empty-icon">🛒</div>
+        <div class="cart-empty-text">Корзина пуста</div>
+      </div>
+      <div class="cart-items" id="cartItems" style="display:none;"></div>
+      <div class="cart-total" id="cartTotal" style="display:none;">
+        <div class="cart-total-label">Итого</div>
+        <div class="cart-total-sum" id="cartSum">0 ₽</div>
+      </div>
+    </div>
+    <a href="#order" class="btn-primary" style="display:block; width:100%; max-width:300px; margin:24px auto 0; text-align:center;">Перейти к оформлению</a>
+  </div>
+</section>
+
 <section id="reviews" style="background:#0F0F12;padding:100px 0;">
   <div class="container">
     <div style="font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#FF6E1A;font-weight:600;margin-bottom:16px;">Отзывы гостей</div>
@@ -767,74 +794,59 @@ html, body { overflow-x:hidden; width:100%; }
     <h2 class="sec-h2">Оформить <em>заказ</em></h2>
     <div class="sec-div"></div>
 
-    <div class="order-grid">
-      <div>
-        <div class="form-group">
-          <label class="form-label">Ваше имя</label>
-          <input type="text" class="form-input" id="orderName" placeholder="Как к вам обращаться">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Телефон</label>
-          <input type="tel" class="form-input" id="orderPhone" placeholder="+7 (___) ___-__-__">
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">Способ получения</label>
-          <div class="toggle-group">
-            <button type="button" class="toggle-btn active" id="btnDelivery" onclick="switchOrderType('delivery')">Доставка</button>
-            <button type="button" class="toggle-btn" id="btnPickup" onclick="switchOrderType('pickup')">Самовывоз</button>
-          </div>
-        </div>
-
-        <div class="form-group" id="deliveryAddressBlock">
-          <label class="form-label">Адрес доставки</label>
-          <input type="text" class="form-input" id="orderAddress" placeholder="Улица, дом, квартира/подъезд">
-        </div>
-
-        <div class="form-group" id="pickupPointBlock" style="display:none;">
-          <label class="form-label">Точка самовывоза</label>
-          <select class="form-input" id="pickupPoint">
-            <option value="Виноградная 185Б">Сочи, Виноградная 185Б</option>
-            <option value="Санаторная 14Г">Сочи, Санаторная 14Г</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">Способ оплаты</label>
-          <div class="pay-options">
-            <label class="pay-option"><input type="radio" name="payMethod" value="Наличными" checked><span>Наличными курьеру/в точке</span></label>
-            <label class="pay-option"><input type="radio" name="payMethod" value="Картой"><span>Картой курьеру/в точке</span></label>
-            <label class="pay-option"><input type="radio" name="payMethod" value="Переводом"><span>Переводом (по номеру телефона)</span></label>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">Комментарий к заказу</label>
-          <textarea class="form-input" id="orderComment" rows="3" placeholder="Например: без лука, доставка к 19:00"></textarea>
-        </div>
-
-        <div class="consent-row">
-          <input type="checkbox" id="orderConsent">
-          <label for="orderConsent">Я согласен(-на) на обработку персональных данных в соответствии с <a href="policy.html" target="_blank" rel="noopener">Политикой конфиденциальности</a></label>
-        </div>
-
-        <button class="btn-primary" style="width:100%;" onclick="submitOrder()">Отправить заказ</button>
-        <div class="delivery-note" style="margin-top:20px;">Мы свяжемся с вами по указанному телефону для подтверждения заказа и времени доставки.</div>
-        <div style="font-size:12px;color:var(--mist);text-align:center;">Или позвоните сами: <a href="tel:+79654691233" style="color:var(--gold);text-decoration:none;">+7 (965) 469-12-33</a></div>
+    <div style="max-width:600px; margin:0 auto;">
+      <div class="form-group">
+        <label class="form-label">Ваше имя</label>
+        <input type="text" class="form-input" id="orderName" placeholder="Как к вам обращаться">
       </div>
-      <div class="order-cart" id="cartBlock">
-        <div class="cart-title">Ваш заказ</div>
-        <div class="cart-hint">Добавляйте блюда из меню выше кнопкой «+ в корзину» — они появятся здесь.</div>
-        <div class="cart-empty" id="cartEmpty">
-          <div class="cart-empty-icon">🛒</div>
-          <div class="cart-empty-text">Корзина пуста</div>
-        </div>
-        <div class="cart-items" id="cartItems" style="display:none;"></div>
-        <div class="cart-total" id="cartTotal" style="display:none;">
-          <div class="cart-total-label">Итого</div>
-          <div class="cart-total-sum" id="cartSum">0 ₽</div>
+      <div class="form-group">
+        <label class="form-label">Телефон</label>
+        <input type="tel" class="form-input" id="orderPhone" placeholder="+7 (___) ___-__-__">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Способ получения</label>
+        <div class="toggle-group">
+          <button type="button" class="toggle-btn active" id="btnDelivery" onclick="switchOrderType('delivery')">Доставка</button>
+          <button type="button" class="toggle-btn" id="btnPickup" onclick="switchOrderType('pickup')">Самовывоз</button>
         </div>
       </div>
+
+      <div class="form-group" id="deliveryAddressBlock">
+        <label class="form-label">Адрес доставки</label>
+        <input type="text" class="form-input" id="orderAddress" placeholder="Улица, дом, квартира/подъезд">
+      </div>
+
+      <div class="form-group" id="pickupPointBlock" style="display:none;">
+        <label class="form-label">Точка самовывоза</label>
+        <select class="form-input" id="pickupPoint">
+          <option value="Виноградная 185Б">Сочи, Виноградная 185Б</option>
+          <option value="Санаторная 14Г">Сочи, Санаторная 14Г</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Способ оплаты</label>
+        <div class="pay-options">
+          <label class="pay-option"><input type="radio" name="payMethod" value="Наличными" checked><span>Наличными курьеру/в точке</span></label>
+          <label class="pay-option"><input type="radio" name="payMethod" value="Картой"><span>Картой курьеру/в точке</span></label>
+          <label class="pay-option"><input type="radio" name="payMethod" value="Переводом"><span>Переводом (по номеру телефона)</span></label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Комментарий к заказу</label>
+        <textarea class="form-input" id="orderComment" rows="3" placeholder="Например: без лука, доставка к 19:00"></textarea>
+      </div>
+
+      <div class="consent-row">
+        <input type="checkbox" id="orderConsent">
+        <label for="orderConsent">Я согласен(-на) на обработку персональных данных в соответствии с <a href="policy.html" target="_blank" rel="noopener">Политикой конфиденциальности</a></label>
+      </div>
+
+      <button class="btn-primary" style="width:100%;" onclick="submitOrder()">Отправить заказ</button>
+      <div class="delivery-note" style="margin-top:20px;">Мы свяжемся с вами по указанному телефону для подтверждения заказа и времени доставки.</div>
+      <div style="font-size:12px;color:var(--mist);text-align:center;">Или позвоните сами: <a href="tel:+79654691233" style="color:var(--gold);text-decoration:none;">+7 (965) 469-12-33</a></div>
     </div>
   </div>
 </section>
@@ -973,7 +985,7 @@ function showCartNotification(name) {
   notif.style.cssText = 'position: fixed; bottom: 24px; right: 24px; z-index: 10000; background: #16161A; border: 1px solid rgba(255,110,26,0.3); padding: 16px 24px; border-radius: 8px; font-size: 14px; color: #C2C2C8; box-shadow: 0 8px 32px rgba(0,0,0,0.4); cursor: pointer; transition: opacity 0.3s;';
   notif.innerHTML = '<span style="color:#22C55E;">✓</span> <span style="color:#FF6E1A;">' + name + '</span> добавлен в корзину. <br><span style="font-size:11px; text-decoration:underline; color:#6B6B73;">Нажмите, чтобы перейти к заказу</span>';
   notif.onclick = function() {
-    document.getElementById('order').scrollIntoView({behavior: 'smooth'});
+    document.getElementById('cartBlock').scrollIntoView({behavior: 'smooth', block: 'center'});
     notif.remove();
   };
   document.body.appendChild(notif);
