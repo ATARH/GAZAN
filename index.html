@@ -18,7 +18,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="ГАЗАН МАНГАЛ — Сочи">
   <meta property="og:description" content="Шашлык и блюда на мангале. Доставка и самовывоз в Сочи. Виноградная 185Б и Санаторная 14Г · Каждый день с 10:00 до 23:00">
-  <meta property="og:image" content="images/og.jpg">
+  <meta property="og:image" content="img/og.jpg">
   <meta property="og:url" content="https://atarh.github.io/GAZAN/">
   <meta property="og:locale" content="ru_RU">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -144,7 +144,7 @@ footer { background:var(--ink); padding:60px 48px 32px; border-top:1px solid rgb
 <canvas id="sparksCanvas"></canvas>
 <header id="header">
   <a class="logo" href="#home" style="display:flex;align-items:center;padding:4px 0;">
-    <img src="images/logo.png" alt="ГАЗАН МАНГАЛ" style="height:48px;width:auto;object-fit:contain;filter: drop-shadow(0 0 8px rgba(255,110,26,0.4));">
+    <img src="img/logo.png" alt="ГАЗАН МАНГАЛ" style="height:48px;width:auto;object-fit:contain;filter: drop-shadow(0 0 8px rgba(255,110,26,0.4));">
   </a>
   <a href="tel:+79654691233" class="mobile-phone" style="display:none;color:var(--gold);font-size:14px;font-weight:700;text-decoration:none;letter-spacing:1px;">+7 (965) 469-12-33</a>
   <nav>
@@ -165,9 +165,9 @@ footer { background:var(--ink); padding:60px 48px 32px; border-top:1px solid rgb
 </div>
 
 <section id="home" style="position:relative;height:100vh;min-height:600px;display:flex;align-items:center;overflow:hidden;width:100%;max-width:100vw;">
-  <video autoplay muted loop playsinline preload="auto" poster="images/hero_poster.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;" class="hero-video">
-    <source src="images/video2.mp4" type="video/mp4" media="(min-width:769px)">
-    <source src="images/video2_mobile.mp4" type="video/mp4">
+  <video autoplay muted loop playsinline preload="auto" poster="img/hero_poster.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;" class="hero-video">
+    <source src="img/video2.mp4" type="video/mp4" media="(min-width:769px)">
+    <source src="img/video2_mobile.mp4" type="video/mp4">
   </video>
   <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(8,8,10,0.35);z-index:1;"></div>
   <div class="hero-inner" style="position:relative;z-index:2;width:100%;max-width:1200px;margin:0 auto;padding:0 48px;display:flex;align-items:center;gap:60px;">
@@ -179,7 +179,7 @@ footer { background:var(--ink); padding:60px 48px 32px; border-top:1px solid rgb
       </div>
     </div>
     <div style="flex-shrink:0;">
-      <img src="images/logo.png" alt="ГАЗАН МАНГАЛ" style="width:240px;height:auto;filter: drop-shadow(0 0 25px rgba(255,110,26,0.3));">
+      <img src="img/logo.png" alt="ГАЗАН МАНГАЛ" style="width:240px;height:auto;filter: drop-shadow(0 0 25px rgba(255,110,26,0.3));">
     </div>
   </div>
 </section>
@@ -216,124 +216,220 @@ footer { background:var(--ink); padding:60px 48px 32px; border-top:1px solid rgb
     <div class="menu-grid" id="menuGrid">
       <!-- ШАШЛЫК -->
       <div class="menu-cat-hidden active" data-cat="meat">
-        <div class="menu-card" onclick="addToCart('Свинина шея', 700, '1ш (~350г)')"><img src="images/meat_sheya.png" alt="Свинина шея" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Свинина шея</div><div class="menu-card-unit">1ш (~350г)</div><div class="menu-card-footer"><div class="menu-card-price">700 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Свинина шея', 700, '1ш (~350г)')">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart('Свинина рёбрышки', 700, '1ш (~350г)')"><img src="images/meat_ribs.png" alt="Свинина рёбрышки" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Свинина рёбрышки</div><div class="menu-card-unit">1ш (~350г)</div><div class="menu-card-footer"><div class="menu-card-price">700 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Свинина рёбрышки', 700, '1ш (~350г)')">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart('Свинина люля', 700, '1ш (~350г)')"><img src="images/meat_lylya.png" alt="Свинина люля" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Свинина люля</div><div class="menu-card-unit">1ш (~350г)</div><div class="menu-card-footer"><div class="menu-card-price">700 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Свинина люля', 700, '1ш (~350г)')">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart('Говядина вырезка', 650, '1ш (~350г)')"><img src="images/meat_beef.png" alt="Говядина вырезка" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Говядина вырезка</div><div class="menu-card-unit">1ш (~350г)</div><div class="menu-card-footer"><div class="menu-card-price">650 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Говядина вырезка', 650, '1ш (~350г)')">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart('Говядина люля', 550, '1ш (~350г)')"><img src="images/meat_beef_lylya.png" alt="Говядина люля" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Говядина люля</div><div class="menu-card-unit">1ш (~350г)</div><div class="menu-card-footer"><div class="menu-card-price">550 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Говядина люля', 550, '1ш (~350г)')">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart('Говяжья печень в сетке', 650, '1ш (~350г)')"><img src="images/meat_liver.png" alt="Говяжья печень в сетке" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Говяжья печень в сетке</div><div class="menu-card-unit">1ш (~350г)</div><div class="menu-card-footer"><div class="menu-card-price">650 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Говяжья печень в сетке', 650, '1ш (~350г)')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Свинина шея', 700, '1ш (~350г)')"><img src="img/meat_sheya.jpg" alt="Свинина шея" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Свинина шея</div><div class="menu-card-unit">1ш (~350г)</div><div class="menu-card-footer"><div class="menu-card-price">700 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Свинина шея', 700, '1ш (~350г)')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Свинина рёбрышки', 700, '1ш (~350г)')"><img src="img/meat_ribs.jpg" alt="Свинина рёбрышки" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Свинина рёбрышки</div><div class="menu-card-unit">1ш (~350г)</div><div class="menu-card-footer"><div class="menu-card-price">700 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Свинина рёбрышки', 700, '1ш (~350г)')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Свинина люля', 700, '1ш (~350г)')"><img src="img/meat_lylya.jpg" alt="Свинина люля" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Свинина люля</div><div class="menu-card-unit">1ш (~350г)</div><div class="menu-card-footer"><div class="menu-card-price">700 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Свинина люля', 700, '1ш (~350г)')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Говядина вырезка', 650, '1ш (~350г)')"><img src="img/meat_beef.jpg" alt="Говядина вырезка" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Говядина вырезка</div><div class="menu-card-unit">1ш (~350г)</div><div class="menu-card-footer"><div class="menu-card-price">650 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Говядина вырезка', 650, '1ш (~350г)')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Говядина люля', 550, '1ш (~350г)')"><img src="img/meat_beef_lylya.jpg" alt="Говядина люля" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Говядина люля</div><div class="menu-card-unit">1ш (~350г)</div><div class="menu-card-footer"><div class="menu-card-price">550 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Говядина люля', 550, '1ш (~350г)')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Говяжья печень в сетке', 650, '1ш (~350г)')"><img src="img/meat_liver.jpg" alt="Говяжья печень в сетке" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Говяжья печень в сетке</div><div class="menu-card-unit">1ш (~350г)</div><div class="menu-card-footer"><div class="menu-card-price">650 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Говяжья печень в сетке', 650, '1ш (~350г)')">+</button></div></div></div>
       </div>
 
       <!-- КУРИЦА И ЦЫПЛЯТА -->
       <div class="menu-cat-hidden" data-cat="chicken">
-        <div class="menu-card" onclick="addToCart('Курица филе бедра', 600, '1ш (~350г)')"><img src="images/chicken_fil.png" alt="Курица филе бедра" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Курица филе бедра</div><div class="menu-card-unit">1ш (~350г)</div><div class="menu-card-footer"><div class="menu-card-price">600 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Курица филе бедра', 600, '1ш (~350г)')">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart('Курица филе грудки', 550, '1ш (~350г)')"><img src="images/chicken_breast.png" alt="Курица филе грудки" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Курица филе грудки</div><div class="menu-card-unit">1ш (~350г)</div><div class="menu-card-footer"><div class="menu-card-price">550 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Курица филе грудки', 550, '1ш (~350г)')">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart('Курица бедро', 500, '1ш (~350г)')"><img src="images/chicken_hip.png" alt="Курица бедро" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Курица бедро</div><div class="menu-card-unit">1ш (~350г)</div><div class="menu-card-footer"><div class="menu-card-price">500 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Курица бедро', 500, '1ш (~350г)')">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart('Курица крыло', 500, '1ш (~350г)')"><img src="images/chicken_wing.png" alt="Курица крыло" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Курица крыло</div><div class="menu-card-unit">1ш (~350г)</div><div class="menu-card-footer"><div class="menu-card-price">500 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Курица крыло', 500, '1ш (~350г)')">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart('Курица люля', 500, '1ш (~350г)')"><img src="images/chicken_lylya.png" alt="Курица люля" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Курица люля</div><div class="menu-card-unit">1ш (~350г)</div><div class="menu-card-footer"><div class="menu-card-price">500 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Курица люля', 500, '1ш (~350г)')">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart('Цыплёнок ТАПАКА (целый)', 750, '~1.2 кг')"><img src="images/chicken_tabaka_whole.png" alt="Цыплёнок ТАПАКА" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Цыплёнок ТАПАКА (целый)</div><div class="menu-card-unit">~1.2 кг</div><div class="menu-card-footer"><div class="menu-card-price">750 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Цыплёнок ТАПАКА (целый)', 750, '~1.2 кг')">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart('Цыплёнок ТАПАКА (половина)', 400, '~0.6 кг')"><img src="images/chicken_tabaka_half.png" alt="Цыплёнок ТАПАКА" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Цыплёнок ТАПАКА (половина)</div><div class="menu-card-unit">~0.6 кг</div><div class="menu-card-footer"><div class="menu-card-price">400 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Цыплёнок ТАПАКА (половина)', 400, '~0.6 кг')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Курица филе бедра', 600, '1ш (~350г)')"><img src="img/chicken_fil.jpg" alt="Курица филе бедра" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Курица филе бедра</div><div class="menu-card-unit">1ш (~350г)</div><div class="menu-card-footer"><div class="menu-card-price">600 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Курица филе бедра', 600, '1ш (~350г)')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Курица филе грудки', 550, '1ш (~350г)')"><img src="img/chicken_breast.jpg" alt="Курица филе грудки" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Курица филе грудки</div><div class="menu-card-unit">1ш (~350г)</div><div class="menu-card-footer"><div class="menu-card-price">550 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Курица филе грудки', 550, '1ш (~350г)')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Курица бедро', 500, '1ш (~350г)')"><img src="img/chicken_hip.jpg" alt="Курица бедро" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Курица бедро</div><div class="menu-card-unit">1ш (~350г)</div><div class="menu-card-footer"><div class="menu-card-price">500 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Курица бедро', 500, '1ш (~350г)')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Курица крыло', 500, '1ш (~350г)')"><img src="img/chicken_wing.jpg" alt="Курица крыло" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Курица крыло</div><div class="menu-card-unit">1ш (~350г)</div><div class="menu-card-footer"><div class="menu-card-price">500 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Курица крыло', 500, '1ш (~350г)')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Курица люля', 500, '1ш (~350г)')"><img src="img/chicken_lylya.jpg" alt="Курица люля" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Курица люля</div><div class="menu-card-unit">1ш (~350г)</div><div class="menu-card-footer"><div class="menu-card-price">500 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Курица люля', 500, '1ш (~350г)')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Цыплёнок ТАПАКА (целый)', 750, '~1.2 кг')"><img src="img/chicken_tabaka_whole.jpg" alt="Цыплёнок ТАПАКА" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Цыплёнок ТАПАКА (целый)</div><div class="menu-card-unit">~1.2 кг</div><div class="menu-card-footer"><div class="menu-card-price">750 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Цыплёнок ТАПАКА (целый)', 750, '~1.2 кг')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Цыплёнок ТАПАКА (половина)', 400, '~0.6 кг')"><img src="img/chicken_tabaka_half.jpg" alt="Цыплёнок ТАПАКА" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Цыплёнок ТАПАКА (половина)</div><div class="menu-card-unit">~0.6 кг</div><div class="menu-card-footer"><div class="menu-card-price">400 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Цыплёнок ТАПАКА (половина)', 400, '~0.6 кг')">+</button></div></div></div>
       </div>
 
       <!-- РЫБА -->
       <div class="menu-cat-hidden" data-cat="fish">
-        <div class="menu-card" onclick="addToCart('Сёмга', 1300, '1ш')"><img src="images/fish_salmon.png" alt="Сёмга" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Сёмга</div><div class="menu-card-unit">1ш</div><div class="menu-card-footer"><div class="menu-card-price">1300 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Сёмга', 1300, '1ш')">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart('Форель', 1100, '1ш')"><img src="images/fish_trout.png" alt="Форель" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Форель</div><div class="menu-card-unit">1ш</div><div class="menu-card-footer"><div class="menu-card-price">1100 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Форель', 1100, '1ш')">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart('Дорадо', 1100, '1ш')"><img src="images/fish_dorado.png" alt="Дорадо" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Дорадо</div><div class="menu-card-unit">1ш</div><div class="menu-card-footer"><div class="menu-card-price">1100 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Дорадо', 1100, '1ш')">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart('Сибас', 1200, '1ш')"><img src="images/fish_seabass.png" alt="Сибас" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Сибас</div><div class="menu-card-unit">1ш</div><div class="menu-card-footer"><div class="menu-card-price">1200 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Сибас', 1200, '1ш')">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart('Креветка тигровая', 700, '1ш')"><img src="images/fish_shrimp.png" alt="Креветка тигровая" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Креветка тигровая</div><div class="menu-card-unit">1ш</div><div class="menu-card-footer"><div class="menu-card-price">700 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Креветка тигровая', 700, '1ш')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Сёмга', 1300, '1ш')"><img src="img/fish_salmon.jpg" alt="Сёмга" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Сёмга</div><div class="menu-card-unit">1ш</div><div class="menu-card-footer"><div class="menu-card-price">1300 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Сёмга', 1300, '1ш')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Форель', 1100, '1ш')"><img src="img/fish_trout.jpg" alt="Форель" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Форель</div><div class="menu-card-unit">1ш</div><div class="menu-card-footer"><div class="menu-card-price">1100 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Форель', 1100, '1ш')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Дорадо', 1100, '1ш')"><img src="img/fish_dorado.jpg" alt="Дорадо" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Дорадо</div><div class="menu-card-unit">1ш</div><div class="menu-card-footer"><div class="menu-card-price">1100 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Дорадо', 1100, '1ш')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Сибас', 1200, '1ш')"><img src="img/fish_seabass.jpg" alt="Сибас" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Сибас</div><div class="menu-card-unit">1ш</div><div class="menu-card-footer"><div class="menu-card-price">1200 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Сибас', 1200, '1ш')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Креветка тигровая', 700, '1ш')"><img src="img/fish_shrimp.jpg" alt="Креветка тигровая" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Креветка тигровая</div><div class="menu-card-unit">1ш</div><div class="menu-card-footer"><div class="menu-card-price">700 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Креветка тигровая', 700, '1ш')">+</button></div></div></div>
       </div>
 
       <!-- ЗАКУСКИ И ГАРНИРЫ -->
       <div class="menu-cat-hidden" data-cat="starters">
-        <div class="menu-card" onclick="addToCart('Овощи гриль', 150, 'порц.')"><img src="images/veg_grill.png" alt="Овощи гриль" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Овощи гриль</div><div class="menu-card-unit">порц.</div><div class="menu-card-footer"><div class="menu-card-price">150 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Овощи гриль', 150, 'порц.')">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart('Сыр сулугуни', 150, 'порц.')"><img src="images/cheese_suluguni.png" alt="Сыр сулугуни" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Сыр сулугуни</div><div class="menu-card-unit">порц.</div><div class="menu-card-footer"><div class="menu-card-price">150 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Сыр сулугуни', 150, 'порц.')">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart('Картофель на мангале', 150, 'порц.')"><img src="images/potato.png" alt="Картофель" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Картофель на мангале</div><div class="menu-card-unit">порц.</div><div class="menu-card-footer"><div class="menu-card-price">150 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Картофель на мангале', 150, 'порц.')">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart('Грибы на мангале', 150, 'порц.')"><img src="images/mushrooms.png" alt="Грибы" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Грибы на мангале</div><div class="menu-card-unit">порц.</div><div class="menu-card-footer"><div class="menu-card-price">150 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Грибы на мангале', 150, 'порц.')">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart('Картофель фри', 170, '120 г')"><img src="images/potato_fries.png" alt="Картофель фри" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Картофель фри</div><div class="menu-card-unit">120 г</div><div class="menu-card-footer"><div class="menu-card-price">170 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Картофель фри', 170, '120 г')">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart('Картофель по-деревенски', 180, '120 г')"><img src="images/potato_village.png" alt="Картофель по-деревенски" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Картофель по-деревенски</div><div class="menu-card-unit">120 г</div><div class="menu-card-footer"><div class="menu-card-price">180 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Картофель по-деревенски', 180, '120 г')">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart('Куриные наггетсы (7 шт)', 280, '150 г')"><img src="images/nuggets.png" alt="Наггетсы" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Куриные наггетсы (7 шт)</div><div class="menu-card-unit">150 г</div><div class="menu-card-footer"><div class="menu-card-price">280 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Куриные наггетсы (7 шт)', 280, '150 г')">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart('Сырные палочки (7 шт)', 290, '170 г')"><img src="images/cheese_sticks.png" alt="Сырные палочки" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Сырные палочки (7 шт)</div><div class="menu-card-unit">170 г</div><div class="menu-card-footer"><div class="menu-card-price">290 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Сырные палочки (7 шт)', 290, '170 г')">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart('Креветки темпура (5 шт)', 290, '110 г')"><img src="images/shrimp_tempura.png" alt="Креветки темпура" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Креветки темпура (5 шт)</div><div class="menu-card-unit">110 г</div><div class="menu-card-footer"><div class="menu-card-price">290 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Креветки темпура (5 шт)', 290, '110 г')">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart('Куриные стрипсы (5 шт)', 290, '200 г')"><img src="images/strips.png" alt="Куриные стрипсы" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Куриные стрипсы (5 шт)</div><div class="menu-card-unit">200 г</div><div class="menu-card-footer"><div class="menu-card-price">290 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Куриные стрипсы (5 шт)', 290, '200 г')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Овощи гриль', 150, 'порц.')"><img src="img/veg_grill.jpg" alt="Овощи гриль" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Овощи гриль</div><div class="menu-card-unit">порц.</div><div class="menu-card-footer"><div class="menu-card-price">150 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Овощи гриль', 150, 'порц.')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Сыр сулугуни', 150, 'порц.')"><img src="img/cheese_suluguni.jpg" alt="Сыр сулугуни" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Сыр сулугуни</div><div class="menu-card-unit">порц.</div><div class="menu-card-footer"><div class="menu-card-price">150 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Сыр сулугуни', 150, 'порц.')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Картофель на мангале', 150, 'порц.')"><img src="img/potato.jpg" alt="Картофель" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Картофель на мангале</div><div class="menu-card-unit">порц.</div><div class="menu-card-footer"><div class="menu-card-price">150 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Картофель на мангале', 150, 'порц.')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Грибы на мангале', 150, 'порц.')"><img src="img/mushrooms.jpg" alt="Грибы" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Грибы на мангале</div><div class="menu-card-unit">порц.</div><div class="menu-card-footer"><div class="menu-card-price">150 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Грибы на мангале', 150, 'порц.')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Картофель фри', 170, '120 г')"><img src="img/potato_fries.jpg" alt="Картофель фри" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Картофель фри</div><div class="menu-card-unit">120 г</div><div class="menu-card-footer"><div class="menu-card-price">170 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Картофель фри', 170, '120 г')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Картофель по-деревенски', 180, '120 г')"><img src="img/potato_village.jpg" alt="Картофель по-деревенски" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Картофель по-деревенски</div><div class="menu-card-unit">120 г</div><div class="menu-card-footer"><div class="menu-card-price">180 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Картофель по-деревенски', 180, '120 г')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Куриные наггетсы (7 шт)', 280, '150 г')"><img src="img/nuggets.jpg" alt="Наггетсы" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Куриные наггетсы (7 шт)</div><div class="menu-card-unit">150 г</div><div class="menu-card-footer"><div class="menu-card-price">280 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Куриные наггетсы (7 шт)', 280, '150 г')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Сырные палочки (7 шт)', 290, '170 г')"><img src="img/cheese_sticks.jpg" alt="Сырные палочки" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Сырные палочки (7 шт)</div><div class="menu-card-unit">170 г</div><div class="menu-card-footer"><div class="menu-card-price">290 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Сырные палочки (7 шт)', 290, '170 г')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Креветки темпура (5 шт)', 290, '110 г')"><img src="img/shrimp_tempura.jpg" alt="Креветки темпура" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Креветки темпура (5 шт)</div><div class="menu-card-unit">110 г</div><div class="menu-card-footer"><div class="menu-card-price">290 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Креветки темпура (5 шт)', 290, '110 г')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Куриные стрипсы (5 шт)', 290, '200 г')"><img src="img/strips.jpg" alt="Куриные стрипсы" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Куриные стрипсы (5 шт)</div><div class="menu-card-unit">200 г</div><div class="menu-card-footer"><div class="menu-card-price">290 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Куриные стрипсы (5 шт)', 290, '200 г')">+</button></div></div></div>
       </div>
 
       <!-- ШАУРМА, СУВЛАКИ, БУРГЕРЫ -->
       <div class="menu-cat-hidden" data-cat="street">
-        <div class="menu-card" onclick="addToCart('Шаурма с шашлыком (свиная шея)', 350, '400 г')"><img src="images/shawarma_pork.png" alt="Шаурма" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Шаурма с шашлыком (свиная шея)</div><div class="menu-card-unit">400 г</div><div class="menu-card-footer"><div class="menu-card-price">350 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Шаурма с шашлыком (свиная шея)', 350, '400 г')">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart('Шаурма с шашлыком из курицы', 300, '400 г')"><img src="images/shawarma_chicken.png" alt="Шаурма" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Шаурма с шашлыком из курицы</div><div class="menu-card-unit">400 г</div><div class="menu-card-footer"><div class="menu-card-price">300 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Шаурма с шашлыком из курицы', 300, '400 г')">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart('Сувлаки куриные', 350, '350 г')"><img src="images/souvlaki_chicken.png" alt="Сувлаки" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Сувлаки куриные</div><div class="menu-card-unit">350 г</div><div class="menu-card-footer"><div class="menu-card-price">350 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Сувлаки куриные', 350, '350 г')">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart('Сувлаки свиные', 350, '350 г')"><img src="images/souvlaki_pork.png" alt="Сувлаки" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Сувлаки свиные</div><div class="menu-card-unit">350 г</div><div class="menu-card-footer"><div class="menu-card-price">350 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Сувлаки свиные', 350, '350 г')">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart('Сувлаки говяжьи', 350, '350 г')"><img src="images/souvlaki_beef.png" alt="Сувлаки" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Сувлаки говяжьи</div><div class="menu-card-unit">350 г</div><div class="menu-card-footer"><div class="menu-card-price">350 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Сувлаки говяжьи', 350, '350 г')">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart('Бургер с говядиной', 470, '350 г')"><img src="images/burger_beef.png" alt="Бургер" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Бургер с говядиной</div><div class="menu-card-unit">350 г</div><div class="menu-card-footer"><div class="menu-card-price">470 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Бургер с говядиной', 470, '350 г')">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart('Бургер с бараниной', 490, '350 г')"><img src="images/burger_lamb.png" alt="Бургер" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Бургер с бараниной</div><div class="menu-card-unit">350 г</div><div class="menu-card-footer"><div class="menu-card-price">490 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Бургер с бараниной', 490, '350 г')">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart('Бургер с курицей', 450, '350 г')"><img src="images/burger_chicken.png" alt="Бургер" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Бургер с курицей</div><div class="menu-card-unit">350 г</div><div class="menu-card-footer"><div class="menu-card-price">450 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Бургер с курицей', 450, '350 г')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Шаурма с шашлыком (свиная шея)', 350, '400 г')"><img src="img/shawarma_pork.jpg" alt="Шаурма" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Шаурма с шашлыком (свиная шея)</div><div class="menu-card-unit">400 г</div><div class="menu-card-footer"><div class="menu-card-price">350 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Шаурма с шашлыком (свиная шея)', 350, '400 г')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Шаурма с шашлыком из курицы', 300, '400 г')"><img src="img/shawarma_chicken.jpg" alt="Шаурма" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Шаурма с шашлыком из курицы</div><div class="menu-card-unit">400 г</div><div class="menu-card-footer"><div class="menu-card-price">300 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Шаурма с шашлыком из курицы', 300, '400 г')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Сувлаки куриные', 350, '350 г')"><img src="img/souvlaki_chicken.jpg" alt="Сувлаки" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Сувлаки куриные</div><div class="menu-card-unit">350 г</div><div class="menu-card-footer"><div class="menu-card-price">350 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Сувлаки куриные', 350, '350 г')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Сувлаки свиные', 350, '350 г')"><img src="img/souvlaki_pork.jpg" alt="Сувлаки" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Сувлаки свиные</div><div class="menu-card-unit">350 г</div><div class="menu-card-footer"><div class="menu-card-price">350 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Сувлаки свиные', 350, '350 г')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Сувлаки говяжьи', 350, '350 г')"><img src="img/souvlaki_beef.jpg" alt="Сувлаки" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Сувлаки говяжьи</div><div class="menu-card-unit">350 г</div><div class="menu-card-footer"><div class="menu-card-price">350 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Сувлаки говяжьи', 350, '350 г')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Бургер с говядиной', 470, '350 г')"><img src="img/burger_beef.jpg" alt="Бургер" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Бургер с говядиной</div><div class="menu-card-unit">350 г</div><div class="menu-card-footer"><div class="menu-card-price">470 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Бургер с говядиной', 470, '350 г')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Бургер с бараниной', 490, '350 г')"><img src="img/burger_lamb.jpg" alt="Бургер" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Бургер с бараниной</div><div class="menu-card-unit">350 г</div><div class="menu-card-footer"><div class="menu-card-price">490 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Бургер с бараниной', 490, '350 г')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Бургер с курицей', 450, '350 г')"><img src="img/burger_chicken.jpg" alt="Бургер" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Бургер с курицей</div><div class="menu-card-unit">350 г</div><div class="menu-card-footer"><div class="menu-card-price">450 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Бургер с курицей', 450, '350 г')">+</button></div></div></div>
       </div>
 
       <!-- СОУСЫ И ХЛЕБ -->
       <div class="menu-cat-hidden" data-cat="sauces">
-        <div class="menu-card" onclick="addToCart('Соус сметанно-чесночный', 120, '100 мл')"><img src="images/sauce_garlic.png" alt="Соус" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Соус сметанно-чесночный</div><div class="menu-card-unit">100 мл</div><div class="menu-card-footer"><div class="menu-card-price">120 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Соус сметанно-чесночный', 120, '100 мл')">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart('Соус томатный фирменный', 120, '100 мл')"><img src="images/sauce_tomato.png" alt="Соус" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Соус томатный фирменный</div><div class="menu-card-unit">100 мл</div><div class="menu-card-footer"><div class="menu-card-price">120 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Соус томатный фирменный', 120, '100 мл')">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart('Соус Наршараб гранатовый', 120, '50 мл')"><img src="images/sauce_narsharab.png" alt="Соус" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Соус Наршараб гранатовый</div><div class="menu-card-unit">50 мл</div><div class="menu-card-footer"><div class="menu-card-price">120 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Соус Наршараб гранатовый', 120, '50 мл')">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart('Соус Reinz (сырный/барбекю)', 50, '25 мл')"><img src="images/sauce_reinz.png" alt="Соус" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Соус Reinz (сырный/барбекю)</div><div class="menu-card-unit">25 мл</div><div class="menu-card-footer"><div class="menu-card-price">50 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Соус Reinz (сырный/барбекю)', 50, '25 мл')">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart('Лаваш (тонкий/толстый)', 100, '150 г')"><img src="images/lavash.png" alt="Лаваш" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Лаваш (тонкий/толстый)</div><div class="menu-card-unit">150 г</div><div class="menu-card-footer"><div class="menu-card-price">100 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Лаваш (тонкий/толстый)', 100, '150 г')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Соус сметанно-чесночный', 120, '100 мл')"><img src="img/sauce_garlic.jpg" alt="Соус" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Соус сметанно-чесночный</div><div class="menu-card-unit">100 мл</div><div class="menu-card-footer"><div class="menu-card-price">120 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Соус сметанно-чесночный', 120, '100 мл')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Соус томатный фирменный', 120, '100 мл')"><img src="img/sauce_tomato.jpg" alt="Соус" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Соус томатный фирменный</div><div class="menu-card-unit">100 мл</div><div class="menu-card-footer"><div class="menu-card-price">120 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Соус томатный фирменный', 120, '100 мл')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Соус Наршараб гранатовый', 120, '50 мл')"><img src="img/sauce_narsharab.jpg" alt="Соус" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Соус Наршараб гранатовый</div><div class="menu-card-unit">50 мл</div><div class="menu-card-footer"><div class="menu-card-price">120 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Соус Наршараб гранатовый', 120, '50 мл')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Соус Reinz (сырный/барбекю)', 50, '25 мл')"><img src="img/sauce_reinz.jpg" alt="Соус" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Соус Reinz (сырный/барбекю)</div><div class="menu-card-unit">25 мл</div><div class="menu-card-footer"><div class="menu-card-price">50 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Соус Reinz (сырный/барбекю)', 50, '25 мл')">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart('Лаваш (тонкий/толстый)', 100, '150 г')"><img src="img/lavash.jpg" alt="Лаваш" class="menu-card-img"><div class="menu-card-info"><div class="menu-card-name">Лаваш (тонкий/толстый)</div><div class="menu-card-unit">150 г</div><div class="menu-card-footer"><div class="menu-card-price">100 ₽</div><button class="menu-add-btn" onclick="event.stopPropagation(); addToCart('Лаваш (тонкий/толстый)', 100, '150 г')">+</button></div></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- КОРЗИНА ПОД МЕНЮ -->
-<section style="background:var(--obs); padding: 40px 0 60px;">
-  <div class="container" style="max-width:700px; margin:0 auto;">
-    <div class="order-cart" id="cartBlock">
-      <div class="cart-title">Ваш заказ</div>
-      <div class="cart-hint">Добавляйте блюда из меню выше кнопкой «+» — они появятся здесь.</div>
-      <div class="cart-empty" id="cartEmpty">
-        <div class="cart-empty-icon">🛒</div>
-        <div class="cart-empty-text">Корзина пуста</div>
+<!-- КОРЗИНА И ФОРМА ЗАКАЗА -->
+<section id="order">
+  <div class="container">
+    <div class="sec-tag">03 — Заказ</div>
+    <h2 class="sec-h2">Оформить <em>заказ</em></h2>
+    <div class="sec-div"></div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;">
+      <!-- Форма -->
+      <div>
+        <div class="form-group">
+          <label class="form-label">Ваше имя</label>
+          <input type="text" class="form-input" id="orderName" placeholder="Как к вам обращаться">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Телефон</label>
+          <input type="tel" class="form-input" id="orderPhone" placeholder="+7 (___) ___-__-__">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Способ получения</label>
+          <div class="toggle-group">
+            <button type="button" class="toggle-btn active" id="btnDelivery" onclick="switchOrderType('delivery')">Доставка</button>
+            <button type="button" class="toggle-btn" id="btnPickup" onclick="switchOrderType('pickup')">Самовывоз</button>
+          </div>
+        </div>
+        <div class="form-group" id="deliveryAddressBlock">
+          <label class="form-label">Адрес доставки</label>
+          <input type="text" class="form-input" id="orderAddress" placeholder="Улица, дом, квартира/подъезд">
+        </div>
+        <div class="form-group" id="pickupPointBlock" style="display:none;">
+          <label class="form-label">Точка самовывоза</label>
+          <select class="form-input" id="pickupPoint">
+            <option value="Виноградная 185Б">Сочи, Виноградная 185Б</option>
+            <option value="Санаторная 14Г">Сочи, Санаторная 14Г</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Способ оплаты</label>
+          <div class="pay-options">
+            <label class="pay-option"><input type="radio" name="payMethod" value="Наличными" checked><span>Наличными курьеру/в точке</span></label>
+            <label class="pay-option"><input type="radio" name="payMethod" value="Картой"><span>Картой курьеру/в точке</span></label>
+            <label class="pay-option"><input type="radio" name="payMethod" value="Переводом"><span>Переводом (по номеру телефона)</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Комментарий к заказу</label>
+          <textarea class="form-input" id="orderComment" rows="3" placeholder="Например: без лука, доставка к 19:00"></textarea>
+        </div>
+        <div class="consent-row">
+          <input type="checkbox" id="orderConsent">
+          <label for="orderConsent">Я согласен(-на) на обработку персональных данных в соответствии с <a href="policy.html" target="_blank" rel="noopener">Политикой конфиденциальности</a></label>
+        </div>
+        <button class="btn-primary" style="width:100%;" onclick="submitOrder()">Отправить заказ</button>
+        <div style="font-size:12px;color:var(--mist);text-align:center;margin-top:20px;">Или позвоните сами: <a href="tel:+79654691233" style="color:var(--gold);text-decoration:none;">+7 (965) 469-12-33</a></div>
       </div>
-      <div class="cart-items" id="cartItems" style="display:none;"></div>
-      <div class="cart-total" id="cartTotal" style="display:none;">
-        <div class="cart-total-label">Итого</div>
-        <div class="cart-total-sum" id="cartSum">0 ₽</div>
+
+      <!-- Корзина -->
+      <div class="order-cart" id="cartBlock">
+        <div class="cart-title">Ваш заказ</div>
+        <div class="cart-hint">Добавляйте блюда из меню выше кнопкой «+» — они появятся здесь.</div>
+        <div class="cart-empty" id="cartEmpty">
+          <div class="cart-empty-icon">🛒</div>
+          <div class="cart-empty-text">Корзина пуста</div>
+        </div>
+        <div class="cart-items" id="cartItems" style="display:none;"></div>
+        <div class="cart-total" id="cartTotal" style="display:none;">
+          <div class="cart-total-label">Итого</div>
+          <div class="cart-total-sum" id="cartSum">0 ₽</div>
+        </div>
       </div>
     </div>
-    <a href="#order" class="btn-primary" style="display:block; width:100%; max-width:300px; margin:24px auto 0; text-align:center;">Перейти к оформлению</a>
   </div>
 </section>
 
+<!-- ОТЗЫВЫ -->
+<section id="reviews" style="background:#0F0F12;padding:100px 0;">
+  <div class="container">
+    <div class="sec-tag">04 — Отзывы гостей</div>
+    <h2 class="sec-h2">Что говорят <em>наши гости</em></h2>
+    <div class="sec-div"></div>
+    <div style="display:flex;align-items:center;gap:32px;margin-bottom:48px;padding:32px 40px;background:#16161A;border-left:3px solid #FF6E1A;">
+      <div style="text-align:center;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:72px;color:#FF8C3A;line-height:1;font-weight:500;">4.8</div>
+        <div style="color:#FF6E1A;font-size:22px;letter-spacing:4px;">★★★★★</div>
+        <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#6B6B73;margin-top:8px;">Яндекс Карты</div>
+      </div>
+      <div style="flex:1;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:24px;color:#F0F0F2;margin-bottom:8px;font-weight:500;">ГАЗАН МАНГАЛ</div>
+        <div style="font-size:14px;color:#6B6B73;font-weight:300;line-height:1.7;margin-bottom:20px;">Читайте отзывы наших гостей и оставьте свой — это помогает нам становиться лучше и помогает другим найти нас.</div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="https://yandex.ru/maps/org/gazan_mangal/20891610901/reviews/" target="_blank" class="btn-primary">Оставить отзыв</a>
+          <a href="https://yandex.ru/maps/org/gazan_mangal/20891610901/reviews/" target="_blank" class="btn-primary" style="background:transparent;color:var(--gold);border:1px solid rgba(255,110,26,.5)">Читать все отзывы →</a>
+        </div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+      <div style="background:#16161A;padding:32px;border-top:2px solid rgba(255,110,26,.3);">
+        <div style="color:#FF6E1A;font-size:18px;margin-bottom:12px;">★★★★★</div>
+        <div style="font-size:16px;font-style:italic;color:#C2C2C8;line-height:1.6;margin-bottom:16px;">«Шашлык из свиной шеи просто тает во рту! А аджапсандал невероятно ароматный. Однозначно лучшее место на Виноградной.»</div>
+        <div style="font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#6B6B73;">Ирина М. · Яндекс Карты</div>
+      </div>
+      <div style="background:#16161A;padding:32px;border-top:2px solid rgba(255,110,26,.3);">
+        <div style="color:#FF6E1A;font-size:18px;margin-bottom:12px;">★★★★★</div>
+        <div style="font-size:16px;font-style:italic;color:#C2C2C8;line-height:1.6;margin-bottom:16px;">«Заказывали шаурму из шашлыка и цыпленка табака — всё приготовлено идеально, мясо сочное и свежее. Будем возвращаться!»</div>
+        <div style="font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#6B6B73;">Дмитрий С. · Яндекс Карты</div>
+      </div>
+      <div style="background:#16161A;padding:32px;border-top:2px solid rgba(255,110,26,.3);">
+        <div style="color:#FF6E1A;font-size:18px;margin-bottom:12px;">★★★★★</div>
+        <div style="font-size:16px;font-style:italic;color:#C2C2C8;line-height:1.6;margin-bottom:16px;">«Отличное место, вкусная еда. Особенно понравилась форель на углях и фирменный томатный соус. Персонал вежливый, готовят быстро.»</div>
+        <div style="font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#6B6B73;">Алексей Т. · Яндекс Карты</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- КОНТАКТЫ -->
 <section id="contacts">
   <div class="container">
-    <div class="sec-tag">04 — Контакты</div>
+    <div class="sec-tag">05 — Контакты</div>
     <h2 class="sec-h2">Выбирай, где <em>ближе</em></h2>
     <div class="sec-div"></div>
     <div class="contacts-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;">
       <div class="contact-items" style="display:flex;flex-direction:column;gap:24px;">
-        <div class="contact-item" style="display:flex;gap:20px;align-items:start;">
-          <div class="contact-icon" style="color:#FF6E1A;font-size:22px;min-width:40px;text-align:center;padding-top:2px;">•</div>
+        <div style="display:flex;gap:20px;align-items:start;">
+          <div style="color:#FF6E1A;font-size:22px;min-width:40px;text-align:center;padding-top:2px;">•</div>
           <div>
-            <div class="contact-label" style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:6px;">Телефон для связи</div>
+            <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:6px;">Телефон для связи</div>
             <div style="font-size:16px;color:var(--cream);"><a href="tel:+79654691233" style="color:var(--cream);text-decoration:none;">+7 (965) 469-12-33</a></div>
           </div>
         </div>
-        <div class="contact-item" style="display:flex;gap:20px;align-items:start;">
-          <div class="contact-icon" style="color:#FF6E1A;font-size:22px;min-width:40px;text-align:center;padding-top:2px;">•</div>
+        <div style="display:flex;gap:20px;align-items:start;">
+          <div style="color:#FF6E1A;font-size:22px;min-width:40px;text-align:center;padding-top:2px;">•</div>
           <div>
-            <div class="contact-label" style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:6px;">Адрес 01</div>
+            <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:6px;">Адрес 01</div>
             <div style="font-size:16px;color:var(--cream);">Сочи, Виноградная 185Б</div>
           </div>
         </div>
-        <div class="contact-item" style="display:flex;gap:20px;align-items:start;">
-          <div class="contact-icon" style="color:#FF6E1A;font-size:22px;min-width:40px;text-align:center;padding-top:2px;">•</div>
+        <div style="display:flex;gap:20px;align-items:start;">
+          <div style="color:#FF6E1A;font-size:22px;min-width:40px;text-align:center;padding-top:2px;">•</div>
           <div>
-            <div class="contact-label" style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:6px;">Адрес 02</div>
+            <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:6px;">Адрес 02</div>
             <div style="font-size:16px;color:var(--cream);">Сочи, Санаторная 14Г</div>
           </div>
         </div>
-        <div class="contact-item" style="display:flex;gap:20px;align-items:start;">
-          <div class="contact-icon" style="color:#FF6E1A;font-size:22px;min-width:40px;text-align:center;padding-top:2px;">•</div>
+        <div style="display:flex;gap:20px;align-items:start;">
+          <div style="color:#FF6E1A;font-size:22px;min-width:40px;text-align:center;padding-top:2px;">•</div>
           <div>
-            <div class="contact-label" style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:6px;">Часы работы</div>
+            <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:6px;">Часы работы</div>
             <div style="font-size:16px;color:var(--cream);">Каждый день с 10:00 до 23:00</div>
           </div>
         </div>
@@ -342,60 +438,6 @@ footer { background:var(--ink); padding:60px 48px 32px; border-top:1px solid rgb
       <div style="background:var(--graph);height:320px;border:1px solid rgba(255,255,255,.06);border-radius:8px;overflow:hidden;">
         <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=39.713%2C43.616%2C39.723%2C43.626&layer=mapnik&marker=43.621461%2C39.718040" style="width:100%;height:100%;border:none;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
-    </div>
-  </div>
-</section>
-
-<section id="order">
-  <div class="container">
-    <div class="sec-tag">03 — Заказ</div>
-    <h2 class="sec-h2">Оформить <em>заказ</em></h2>
-    <div class="sec-div"></div>
-    <div style="max-width:600px; margin:0 auto;">
-      <div class="form-group">
-        <label class="form-label">Ваше имя</label>
-        <input type="text" class="form-input" id="orderName" placeholder="Как к вам обращаться">
-      </div>
-      <div class="form-group">
-        <label class="form-label">Телефон</label>
-        <input type="tel" class="form-input" id="orderPhone" placeholder="+7 (___) ___-__-__">
-      </div>
-      <div class="form-group">
-        <label class="form-label">Способ получения</label>
-        <div class="toggle-group">
-          <button type="button" class="toggle-btn active" id="btnDelivery" onclick="switchOrderType('delivery')">Доставка</button>
-          <button type="button" class="toggle-btn" id="btnPickup" onclick="switchOrderType('pickup')">Самовывоз</button>
-        </div>
-      </div>
-      <div class="form-group" id="deliveryAddressBlock">
-        <label class="form-label">Адрес доставки</label>
-        <input type="text" class="form-input" id="orderAddress" placeholder="Улица, дом, квартира/подъезд">
-      </div>
-      <div class="form-group" id="pickupPointBlock" style="display:none;">
-        <label class="form-label">Точка самовывоза</label>
-        <select class="form-input" id="pickupPoint">
-          <option value="Виноградная 185Б">Сочи, Виноградная 185Б</option>
-          <option value="Санаторная 14Г">Сочи, Санаторная 14Г</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label class="form-label">Способ оплаты</label>
-        <div class="pay-options">
-          <label class="pay-option"><input type="radio" name="payMethod" value="Наличными" checked><span>Наличными курьеру/в точке</span></label>
-          <label class="pay-option"><input type="radio" name="payMethod" value="Картой"><span>Картой курьеру/в точке</span></label>
-          <label class="pay-option"><input type="radio" name="payMethod" value="Переводом"><span>Переводом (по номеру телефона)</span></label>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="form-label">Комментарий к заказу</label>
-        <textarea class="form-input" id="orderComment" rows="3" placeholder="Например: без лука, доставка к 19:00"></textarea>
-      </div>
-      <div class="consent-row">
-        <input type="checkbox" id="orderConsent">
-        <label for="orderConsent">Я согласен(-на) на обработку персональных данных в соответствии с <a href="policy.html" target="_blank" rel="noopener">Политикой конфиденциальности</a></label>
-      </div>
-      <button class="btn-primary" style="width:100%;" onclick="submitOrder()">Отправить заказ</button>
-      <div style="font-size:12px;color:var(--mist);text-align:center;margin-top:20px;">Или позвоните сами: <a href="tel:+79654691233" style="color:var(--gold);text-decoration:none;">+7 (965) 469-12-33</a></div>
     </div>
   </div>
 </section>
@@ -467,7 +509,6 @@ document.addEventListener('DOMContentLoaded', () => {
   updateMenuIndicators();
   updateFloatingCart();
 
-  // Автоматически добавляем кнопку минус к каждой карточке
   document.querySelectorAll('.menu-add-btn').forEach(btn => {
     const m = btn.getAttribute('onclick').match(/'([^']+)'/);
     if (m && m[1]) {
@@ -479,7 +520,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Анимация появления блоков
   if (window.IntersectionObserver) {
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } });
@@ -493,61 +533,27 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
   }
 
-  // Анимация искр на курсоре (ВЕРНУЛИ!)
   const sparksCanvas = document.getElementById('sparksCanvas');
   if (sparksCanvas) {
     const ctx = sparksCanvas.getContext('2d');
     let w, h;
-    function resizeCanvas() {
-      w = sparksCanvas.width = window.innerWidth;
-      h = sparksCanvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
-
+    function resizeCanvas() { w = sparksCanvas.width = window.innerWidth; h = sparksCanvas.height = window.innerHeight; }
+    window.addEventListener('resize', resizeCanvas); resizeCanvas();
     const particles = [];
-    function createEmber() { 
-      particles.push({ 
-        x: Math.random() * w, y: h + 10, vx: (Math.random() - 0.5) * 0.5, 
-        vy: -Math.random() * 1.5 - 0.5, life: 1, decay: Math.random() * 0.008 + 0.004, 
-        size: Math.random() * 1.5 + 0.5, color: Math.random() > 0.5 ? '255,110,26' : '255,140,58' 
-      }); 
-    }
-    function createMouseSpark(x, y) { 
-      for (let i = 0; i < 2; i++) { 
-        particles.push({ 
-          x: x, y: y, vx: (Math.random() - 0.5) * 3, vy: (Math.random() - 0.5) * 3 - 1, 
-          life: 1, decay: 0.04, size: Math.random() * 2 + 1, color: '255, 140, 58' 
-        }); 
-      } 
-    }
-
+    function createEmber() { particles.push({ x: Math.random() * w, y: h + 10, vx: (Math.random() - 0.5) * 0.5, vy: -Math.random() * 1.5 - 0.5, life: 1, decay: Math.random() * 0.008 + 0.004, size: Math.random() * 1.5 + 0.5, color: Math.random() > 0.5 ? '255,110,26' : '255,140,58' }); }
+    function createMouseSpark(x, y) { for (let i = 0; i < 2; i++) { particles.push({ x: x, y: y, vx: (Math.random() - 0.5) * 3, vy: (Math.random() - 0.5) * 3 - 1, life: 1, decay: 0.04, size: Math.random() * 2 + 1, color: '255, 140, 58' }); } }
     let lastSpark = 0;
-    document.addEventListener('mousemove', (e) => {
-      const now = Date.now();
-      if (now - lastSpark > 30) {
-        lastSpark = now;
-        createMouseSpark(e.clientX, e.clientY);
-      }
-    });
-
+    document.addEventListener('mousemove', (e) => { const now = Date.now(); if (now - lastSpark > 30) { lastSpark = now; createMouseSpark(e.clientX, e.clientY); } });
     function animateSparks() {
       ctx.clearRect(0, 0, w, h);
       if (Math.random() > 0.7) createEmber();
       for (let i = particles.length - 1; i >= 0; i--) {
         const p = particles[i];
-        p.x += p.vx;
-        p.y += p.vy;
-        p.life -= p.decay;
-        if (p.life <= 0 || p.y < -20 || p.x < -20 || p.x > w + 20) {
-          particles.splice(i, 1);
-          continue;
-        }
+        p.x += p.vx; p.y += p.vy; p.life -= p.decay;
+        if (p.life <= 0 || p.y < -20 || p.x < -20 || p.x > w + 20) { particles.splice(i, 1); continue; }
         ctx.globalAlpha = p.life;
         ctx.fillStyle = `rgba(${p.color}, ${p.life})`;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fill();
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fill();
       }
       ctx.globalAlpha = 1;
       requestAnimationFrame(animateSparks);
